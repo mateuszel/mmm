@@ -1,5 +1,7 @@
 # Hackathon runbook
 
+**Presentation constraint:** three-minute pitch followed by two minutes of Q&A. Optimize the demo for one reliable story and reserve time for rehearsal and fallback capture.
+
 | Time | Outcome |
 | --- | --- |
 | 10:30–10:50 | Process official challenge; mark facts vs assumptions |

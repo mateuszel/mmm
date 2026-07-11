@@ -1,14 +1,16 @@
 # Team MMM - Solidgate hackathon workspace
 
-Shared source of truth for Team MMM at the OpenAI x START Warsaw Hackathon. The Solidgate challenge asks the team to explore a measurable, controlled AI shopping agent that can monitor offers, calculate the true delivered price, decide when a deal is valid, and act only within clear user consent.
+Clean shared workspace for Team MMM at the OpenAI x START Warsaw Hackathon. The Solidgate challenge asks the team to explore a measurable, controlled AI shopping agent that can monitor offers, calculate the true delivered price, decide when a deal is valid, and act only within clear user consent.
 
 > **Status: Discovery.** The final product scope, demo, architecture, stack, and integrations are not approved. Do not start or extend implementation until the team records the move to implementation in [Open decisions](docs/OPEN_DECISIONS.md) and [Decisions](docs/DECISIONS.md).
 
 ## Current hypothesis
 
-The team is considering a conversational shopping and purchasing agent. A user could describe an item, variant, budget, discount threshold, allowed sellers, and approval conditions. The system could monitor deterministic merchant fixtures, compare equivalent offers, compute landed cost, reject misleading deals, and prepare or simulate a purchase under an explicit mandate.
+The leading idea is a proactive shopping negotiator. A user describes an item and constraints; the agent monitors deterministic listings, checks availability, compares equivalent offers, analyzes photos and condition for used goods, reads seller reputation, asks targeted questions, and may negotiate before presenting an explainable deal or approval request.
 
-AP2 alignment, BLIK, messenger-style UX, coupon discovery, marketplace/private-seller flows, autonomous buying, and any live Solidgate integration are **provisional**. None are implemented or confirmed requirements.
+The product experience may have two surfaces: a minimal brand/pitch page and a focused interactive demo. The pitch slot is three minutes followed by two minutes of Q&A, so clarity, visual polish, and a reliable staged story matter more than feature breadth.
+
+Negotiation, image/condition analysis, seller research, proactive messaging, AP2, BLIK, coupon discovery, marketplace/private-seller flows, autonomous buying, and any live integration are **provisional**. None are implemented or confirmed requirements.
 
 ## Read first
 
@@ -24,7 +26,7 @@ AP2 alignment, BLIK, messenger-style UX, coupon discovery, marketplace/private-s
 
 ## Repository state
 
-An earlier generic application scaffold, tests, dependencies, and setup documentation already exist on `main`. They are preserved for team review but do **not** mean the Solidgate product or technology choices are approved. Until discovery closes, do not add application code, dependencies, infrastructure, or payment integrations.
+The active tree is intentionally documentation-first and contains no application scaffold or dependencies. Earlier experiments remain recoverable from Git history and an offline backup. Until discovery closes, do not add application code, dependencies, infrastructure, messaging, or payment integrations.
 
 ## Working together
 

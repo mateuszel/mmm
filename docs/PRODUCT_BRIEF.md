@@ -4,34 +4,37 @@
 
 ## Working problem statement
 
-Online shoppers can miss short-lived good prices or be misled by sticker prices, fake discounts, cross-border costs, and duplicated listings. Existing trackers often monitor one listed price and create noisy alerts. A trusted agent could do the arithmetic and judgment while keeping spending under explicit user control.
+Online shoppers can miss good listings or waste time verifying availability, condition, seller credibility, real cost, and room for negotiation. This is especially painful for used, scarce, or messy marketplace offers. A trusted agent could investigate and negotiate proactively while keeping communication and spending under explicit user control.
 
 ## Provisional target user
 
-A price-conscious online shopper seeking a specific product/variant who is willing to define a clear budget and seller constraints but does not want to monitor multiple shops continuously.
+A shopper seeking a specific new or used product who cares about price, availability, condition, authenticity, and seller trust but does not want to monitor and message many sellers manually.
 
 ## Provisional value proposition
 
-“Describe what you want and your true delivered-price ceiling; receive one explainable alert or controlled action when a verified deal actually meets it.”
+“Describe what you want and your boundaries; the agent finds the credible option, investigates it, negotiates within your rules, and brings back an explainable deal.”
 
 ## Expected journey
 
 1. User writes a shopping brief with product, variant, budget, seller, and approval constraints.
-2. The system monitors deterministic merchant/listing events.
-3. It matches equivalent offers and computes landed cost.
-4. It rejects bait, fake discounts, invalid coupons, and cap violations.
-5. It produces a calibrated alert with evidence and price math.
-6. It prepares or simulates a purchase only according to the chosen approval/mandate rule.
-7. It issues a receipt and explanation.
+2. The system monitors deterministic merchant or seller listings.
+3. It matches equivalent offers, verifies availability, and computes landed cost.
+4. It analyzes seeded photos/condition evidence, seller reputation, reviews, and missing information.
+5. It drafts or simulates targeted questions and a bounded negotiation.
+6. It rejects traps and returns one meaningful proposal with evidence and price math.
+7. It requests approval or simulates action only under the chosen mandate rule, then issues a receipt/explanation.
 
 ## Possible core demo
 
-A deterministic sequence in which several misleading offers appear before one valid deal. The system explains each rejection, recognizes the valid offer, and demonstrates either an approval request or a capped simulated strike. This is a candidate, not the approved demo.
+A deterministic story around one desirable used or scarce product: the agent filters weak offers, inspects photos and seller evidence, detects missing details, asks questions, negotiates a better final price, and returns one safe proposal for approval. This is the leading candidate, not the approved demo.
 
 ## Possible differentiators
 
 - Landed-cost reasoning instead of sticker-price tracking
 - Same-product matching across messy listings
+- Proactive availability/condition investigation and seller communication
+- Visual evidence and seller-reputation analysis presented with calibrated confidence
+- Bounded negotiation that knows when to ask the user
 - High-precision alerts and explicit false-buy evaluation
 - Revocable mandate with non-negotiable caps and receipts
 - Local-market relevance through a possible BLIK/AP2 narrative
@@ -54,6 +57,8 @@ A deterministic sequence in which several misleading offers appear before one va
 ## Major risks
 
 - Trying to demonstrate too many differentiators at once
+- Making a simulated negotiation look like a real message was sent
+- Overclaiming what image analysis or reviews prove about condition/authenticity
 - Confusing deterministic fixtures with live integrations
 - Weak product matching or price math undermining trust
 - An autonomy story that feels unsafe or cannot be explained
@@ -67,3 +72,5 @@ A deterministic sequence in which several misleading offers appear before one va
 - A messenger-style UX makes the flow clearer rather than gimmicky.
 - Coupons, marketplaces, or private sellers materially improve the core demo.
 - A small seeded matching problem is credible to judges.
+- Negotiation creates more judge-visible value than a simpler alert/approval flow.
+- The brand surface and product demo can share one implementation without splitting effort.

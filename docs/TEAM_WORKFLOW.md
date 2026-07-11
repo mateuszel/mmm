@@ -6,11 +6,11 @@
 
 ### Frontend and product experience
 
-Own the user journey, shopping brief, offer comparison, alert/approval interaction, receipt presentation, responsive demo flow, and visual consistency. Coordinate request/response contracts before building against backend behavior.
+Own the minimal brand/pitch surface and interactive demo as one coherent experience: shopping brief, listing evidence, photo/condition and seller signals, negotiation, alert/approval interaction, receipt presentation, responsive flow, and visual consistency. Coordinate request/response contracts before building against backend behavior.
 
 ### Backend and agent logic
 
-Own deterministic merchant events, landed-cost logic, matching/decision behavior, mandate enforcement, tool boundaries, model usage, evaluation fixtures, and integration adapters. Expose stable shared contracts rather than UI-specific behavior.
+Own deterministic merchant/seller events, landed-cost logic, matching/decision behavior, seeded visual and reputation evidence, bounded negotiation, mandate enforcement, tool boundaries, model usage, evaluation fixtures, and integration adapters. Expose stable shared contracts rather than UI-specific behavior.
 
 ### Product, demo, testing, and presentation
 

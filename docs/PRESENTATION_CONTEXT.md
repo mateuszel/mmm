@@ -4,7 +4,7 @@
 
 ## Main narrative
 
-Online shoppers should be able to state intent once and let a patient agent monitor fragmented offers. The product earns trust by calculating the real delivered price, rejecting misleading deals, and acting only under understandable approval or mandate rules.
+Online shoppers should state intent once and let a proactive but bounded agent do the awkward work: find credible listings, inspect evidence, ask sellers the right questions, negotiate, and return one explainable deal. The agent earns trust by knowing when to act, when to ask, and what it can actually prove.
 
 ## Proposed user problem
 
@@ -15,9 +15,9 @@ People cannot continuously watch dynamic prices across stores, currencies, deliv
 1. Conversational brief: product, variant, budget, discount, sellers, and payment/approval conditions.
 2. Proactive monitoring of deterministic merchant or marketplace-like fixtures.
 3. Offer normalization, product matching, landed-cost calculation, and promotional validation.
-4. One meaningful deal notification with evidence.
-5. Purchase preparation, approval, or simulated action under a prior mandate.
-6. Receipt explaining the decision and total price.
+4. Photo/condition and seller-reputation analysis with visible uncertainty.
+5. Drafted or simulated proactive questions and bounded negotiation.
+6. One meaningful proposal, approval boundary, and receipt explaining the decision and total price.
 
 ## Proposed differentiators
 
@@ -27,10 +27,13 @@ People cannot continuously watch dynamic prices across stores, currencies, deliv
 - Safe delegated action with receipts and explicit constraints
 - Possible AP2/BLIK/local-market story
 - Possible messenger-style proactive experience
+- Investigation and negotiation rather than passive price tracking alone
 
 ## Visual or design direction
 
-Exploratory direction: a concise, consumer-friendly fictional messaging experience combined with clear offer comparison, mandate status, approval, and receipt views. No external messenger brand or integration should be implied without permission and implementation.
+Exploratory direction: one clean, minimalist site with a fast brand narrative and a focused fictional conversation/demo flow. It should show listing evidence, photos, seller signals, negotiation, mandate status, approval, and receipt without resembling a cluttered marketplace dashboard. No external messenger brand or live integration should be implied.
+
+The pitch is three minutes plus two minutes of Q&A. The presentation should optimize for one memorable story, visible judgment, and a reliable “wow” moment rather than broad feature coverage.
 
 ## Claims requiring validation
 

@@ -14,7 +14,7 @@ Use [Official case](OFFICIAL_CASE.md) for the complete confirmed summary.
 
 ## What is provisional
 
-The team currently imagines a conversational shopping and purchasing agent with deal monitoring, promotional intelligence, optional delegated-payment behavior, and a messenger-style experience. AP2, BLIK, marketplaces, private sellers, autonomous buying, and live integrations remain ideas, not commitments. See [Current concept](CURRENT_CONCEPT.md).
+The leading direction is a proactive shopping negotiator: it may check availability, analyze listing photos and condition, assess seller reviews/reputation, ask questions, negotiate within boundaries, and bring back an explainable proposal. A minimal brand page plus interactive demo is being considered. AP2, BLIK, outbound messaging, marketplaces, autonomous buying, hosting, and live integrations remain ideas, not commitments. See [Current concept](CURRENT_CONCEPT.md).
 
 ## What is open
 
@@ -29,7 +29,7 @@ The value proposition, core demo, primary differentiator, autonomy boundary, mer
 
 ## Existing repository content
 
-Before the official case was captured, the repository received a generic Next.js control-plane scaffold, fixtures, tests, CI, setup documentation, and Solidgate reference skills. That work may contain reusable patterns, but it is **not an approved product implementation or final architecture**. Freeze it during discovery and decide later what to retain.
+Before the official case was captured, the repository received a generic application scaffold and vendored reference material. Those files were removed from the active tree to keep the shared workspace clean; they remain recoverable from Git history and an offline repository bundle. No product implementation is currently active.
 
 ## Suggested reading order
 

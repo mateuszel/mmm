@@ -1,8 +1,8 @@
 ---
 name: demo-readiness
-description: Use at feature freeze or before presenting to validate reset, happy path, fallback route, checks, and the current demo script.
+description: Use after implementation begins, at feature freeze or before presenting, to validate the selected demo, fallback, pitch timing, and mock/live claims.
 ---
 
 # Demo readiness
 
-Read `docs/DEMO_SCRIPT.md` and `docs/HACKATHON_RUNBOOK.md`. Run `pnpm demo:reset`, `pnpm check`, and `pnpm test:e2e`. Verify generic and selected partner fixtures, approval and rejection, no-key behavior, and mobile/laptop layout. Fix in-scope failures. Ensure the generic scenario is a credible fallback and update the demo script with the current click path and explicit mock/live language. Never claim an unverified integration works.
+Read `docs/OFFICIAL_CASE.md`, `docs/CURRENT_CONCEPT.md`, `docs/OPEN_DECISIONS.md`, and `docs/HACKATHON_RUNBOOK.md`. Do not run framework-specific commands until the stack and verification commands are recorded. After implementation is approved, verify the selected happy path, deterministic reset, fallback route, laptop layout, three-minute pitch timing, and explicit mock/live labels. Fix in-scope failures and never claim an unverified integration works.

@@ -19,6 +19,9 @@ Keep source-backed facts separate from team inference. Add links, access dates, 
 - Coupon discovery reliability and validation method
 - FX, duties, shipping, and historical-price data sources
 - Legal/safety implications of delegated purchasing and standing consent
+- ChatGPT Sites product availability, account entitlement, deployment workflow, and limitations
+- Reliability/limitations of image-based condition analysis and seller-review summarization
+- Marketplace messaging rules and safe negotiation boundaries
 
 ## Research entry template
 
