@@ -12,10 +12,9 @@ describe("deterministic demo timelines", () => {
   });
 
   it("fits the pitch recording window", () => {
-    expect(scenarios.retail.durationMs).toBe(20_000);
-    expect(scenarios.private.durationMs).toBe(19_000);
-    expect(scenarios.foreign.durationMs).toBe(35_000);
-    expect(Object.values(scenarios).reduce((total, item) => total + item.durationMs, 0)).toBe(74_000);
+    expect(scenarios.retail.durationMs).toBe(22_500);
+    expect(scenarios.private.durationMs).toBe(21_500);
+    expect(scenarios.foreign.durationMs).toBeCloseTo(50_925.238, 3);
   });
 
   it("narrows eight retail sources to the two captured finalists", () => {
@@ -25,9 +24,9 @@ describe("deterministic demo timelines", () => {
 
   it("keeps the call transcript and risk timestamps inside 31 seconds", () => {
     expect(callLines[0].startMs).toBe(0);
-    expect(callLines.at(-1)?.endMs).toBe(31_000);
-    expect(callLines.filter((line) => line.risk)).toHaveLength(4);
-    expect(callLines.some((line) => line.risk?.includes("Critical risk"))).toBe(true);
+    expect(callLines.at(-1)?.endMs).toBeCloseTo(46_925.238, 3);
+    expect(callLines.filter((line) => line.risk)).toHaveLength(3);
+    expect(callLines.map((line) => line.audio)).toHaveLength(6);
   });
 
   it("keeps price history optional for future scenarios", () => {

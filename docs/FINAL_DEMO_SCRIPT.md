@@ -11,6 +11,6 @@ Status: **live presentation flow**.
 7. Click `Start protected call` once.
 8. Let the final German audio and transcript run, then hold on `Listing rejected`.
 
-The presenter does not expose or explain the keyboard shortcuts. Scenario 3 audio remains a pending handoff: the team will supply fictional German AI voices and final transcript timing in the next production step.
+The presenter does not expose or explain the keyboard shortcuts. Scenario 3 plays the supplied fictional German AI-to-AI dialogue and synchronized transcript after approval.
 
 Fallback: if audio is unavailable, present the visual risk sequence without sound and narrate the policy boundary live. Never describe the call, seller contact, payment or marketplace connection as live.

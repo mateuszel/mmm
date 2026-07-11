@@ -32,6 +32,10 @@ Exact generation prompts, dimensions, alt text and tool names are recorded in th
 
 ## Audio and subtitles
 
+Current presentation master: `audio/german-call/combined.wav`, assembled losslessly from six team-supplied WAV clips with 350 ms gaps. Clips 1/3/5 are Relyo and 2/4/6 are the fictional seller. Total duration is 46.925 seconds; clips 4 and 6 were duplicated from mono to stereo only in the combined master. The untouched source clips remain in `audio/german-call/`. Exact timings are stored in `call/german-transcript.json`.
+
+The InPost mark at `/brand/inpost-logo.svg` was captured from the official `https://inpost.pl/themes/custom/inpost/logo.svg` asset on 2026-07-11. It appears only beside copy explicitly describing a planned delivery collaboration; it is not evidence of a live integration.
+
 | Deliverable | File | Provenance | Duration/status |
 |---|---|---|---|
 | Combined browser master | `audio/scenario-3-call-combined.m4a` | Two fictional local macOS German synthetic voices; [call script](CALL_SCRIPT.md) | 27.000 s, Accepted |

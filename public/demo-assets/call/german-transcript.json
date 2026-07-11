@@ -1,0 +1,13 @@
+{
+  "language": "de-DE",
+  "duration_ms": 46925.238,
+  "inter_turn_gap_ms": 350,
+  "lines": [
+    { "clip": "1.wav", "speaker": "Relyo", "start_ms": 0, "end_ms": 10843.810, "text": "Hallo! Ich melde mich wegen der Fujifilm X100V. Können Sie mir kurz sagen, in welchem technischen Zustand sie ist, und vielleicht noch ein paar Fotos schicken?" },
+    { "clip": "2.wav", "speaker": "Seller", "start_ms": 11193.810, "end_ms": 23152.290, "text": "Ähm ja, hören Sie, lassen Sie uns das doch privat regeln. Ich hab keine Lust auf die ganzen versteckten Gebühren bei eBay. Überweisen Sie mir das Geld einfach direkt, dann schicke ich Ihnen die Kamera. Ohne zusätzlichen Mist." },
+    { "clip": "3.wav", "speaker": "Relyo", "start_ms": 23502.290, "end_ms": 28375.306, "text": "Ähm, sorry, aber sicherheitshalber würde ich das lieber über eBay abwickeln." },
+    { "clip": "4.wav", "speaker": "Seller", "start_ms": 28725.306, "end_ms": 36468.912, "text": "Ich meine, das ist doch eine Win-win-Situation für uns beide. Ich schicke Ihnen die Zahlungsdaten, schicken Sie mir einfach die Lieferadresse über WhatsApp." },
+    { "clip": "5.wav", "speaker": "Relyo", "start_ms": 36818.912, "end_ms": 41772.268, "text": "Ähm, ich fühle mich einfach nicht wohl dabei, das außerhalb von eBay zu machen. Tut mir leid." },
+    { "clip": "6.wav", "speaker": "Seller", "start_ms": 42122.268, "end_ms": 46925.238, "text": "Ach, fahren Sie zur Hölle. Wenn Sie es nicht ernst meinen, verschwenden Sie nicht meine Zeit." }
+  ]
+}

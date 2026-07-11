@@ -12,7 +12,7 @@ import {
 type PlaybackStatus = "home" | "playing" | "paused" | "awaiting-approval" | "final";
 
 const APPROVAL_AT_MS = 4_000;
-const CALL_DURATION_MS = 31_000;
+const CALL_DURATION_MS = 46_925.238;
 
 function isAudioAsset(path: string) {
   return /\.(m4a|mp3|wav|ogg)$/i.test(path);

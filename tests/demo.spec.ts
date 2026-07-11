@@ -23,11 +23,11 @@ test("home composer and lightweight menus are genuinely interactive", async ({ p
   await input.fill("Find a safe camera deal under 1,200 EUR");
   await expect(submit).toBeEnabled();
   await submit.click();
-  await expect(page.getByTestId("home-evidence-count")).toHaveText("0 items");
+  await expect(page.getByTestId("home-evidence-count")).toHaveText("Ready");
   await page.getByTestId("home-activity-trigger").click();
   await expect(page.getByTestId("home-activity-popover")).toContainText("Request saved locally");
   await page.getByTestId("home-profile-trigger").click();
-  await expect(page.getByTestId("home-profile-popover")).toContainText("No account connected");
+  await expect(page.getByTestId("home-profile-popover")).toContainText("Privacy protection active");
   await page.getByTestId("home-settings-trigger").click();
   await expect(page.getByTestId("home-profile-popover")).toHaveCount(0);
   await expect(page.getByTestId("home-settings-popover")).toBeVisible();
@@ -62,7 +62,7 @@ test("protected call pauses, resumes on click, synchronizes risk, and holds", as
   await expect(page.getByTestId("risk-critical")).toBeVisible();
   await expect(page.getByTestId("risk-personal")).toBeVisible();
   await expect(page.getByTestId("foreign-final")).toBeVisible();
-  await expect(page.getByTestId("call-timer")).toHaveText("00:31");
+  await expect(page.getByTestId("call-timer")).toHaveText("00:46");
   await page.waitForTimeout(250);
   await expect(page.getByTestId("foreign-final")).toBeVisible();
   await page.keyboard.press("r");
@@ -88,4 +88,25 @@ test("recording viewport never scrolls and playback remains offline", async ({ p
   expect(dimensions.width).toBe(dimensions.innerWidth);
   expect(dimensions.height).toBe(dimensions.innerHeight);
   expect(external).toEqual([]);
+});
+
+test("source and conversation panels keep fixed geometry across transitions", async ({ page }) => {
+  await page.keyboard.press("1");
+  const retailStage = page.getByTestId("retail-source-stage");
+  await expect(retailStage).toBeVisible();
+  const retailBefore = await retailStage.boundingBox();
+  await expect(page.getByTestId("retail-final")).toBeVisible();
+  const retailAfter = await retailStage.boundingBox();
+  expect(retailAfter).toEqual(retailBefore);
+
+  await page.keyboard.press("r");
+  await page.keyboard.press("2");
+  const privateStage = page.getByTestId("private-source-stage");
+  const sellerThread = page.getByTestId("seller-thread-panel");
+  const checkout = page.getByTestId("checkout-panel");
+  await expect(privateStage).toBeVisible();
+  const before = await Promise.all([privateStage.boundingBox(), sellerThread.boundingBox(), checkout.boundingBox()]);
+  await expect(page.getByTestId("private-final")).toBeVisible();
+  const after = await Promise.all([privateStage.boundingBox(), sellerThread.boundingBox(), checkout.boundingBox()]);
+  expect(after).toEqual(before);
 });

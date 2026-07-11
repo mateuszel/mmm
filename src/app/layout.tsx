@@ -3,8 +3,8 @@ import "./globals.css";
 import "@/styles/cinematic.css";
 
 export const metadata: Metadata = {
-  title: "Relyo · Shopping agent demo",
-  description: "A deterministic Team MMM shopping-agent prototype.",
+  title: "Relyo · Your AI shopping agent",
+  description: "Search, verify and act inside your shopping mandate.",
   icons: { icon: "/favicon.svg" },
 };
 

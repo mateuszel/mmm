@@ -36,12 +36,12 @@ corepack pnpm test:e2e
 - Close devtools and notifications.
 - Confirm the demo works with network disabled after loading.
 - Confirm profile, preferences, activity and composer interactions do not obscure the next scenario.
-- After the team supplies German audio, verify playback, transcript and risk events from a cold refresh.
+- Verify the German audio, transcript and risk events from a cold refresh.
 
 ## Current timing
 
-- Scenario 1: about 20 seconds.
-- Scenario 2: about 19 seconds.
-- Scenario 3: pre-call about 4 seconds plus the pending German audio duration.
+- Scenario 1: about 22.5 seconds.
+- Scenario 2: about 21.5 seconds.
+- Scenario 3: pre-call about 4 seconds plus 46.925 seconds of German dialogue.
 
 These are presentation cues, not contractual timing. Reliability and readable state changes take priority.

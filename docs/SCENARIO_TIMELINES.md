@@ -6,7 +6,7 @@ All three scenarios begin with the same transition: the home composer expands, t
 
 ## Scenario 1 — retail true cost
 
-Approximate runtime: 20 seconds.
+Approximate runtime: 22.5 seconds.
 
 1. Type the adidas Samba OG EU43 request.
 2. Reveal the mandate one rule at a time.
@@ -19,7 +19,7 @@ Approximate runtime: 20 seconds.
 
 ## Scenario 2 — private listing
 
-Approximate runtime: 19 seconds.
+Approximate runtime: 21.5 seconds.
 
 1. Type the Nintendo Switch OLED request.
 2. Reveal the frozen OLX search capture.
@@ -40,7 +40,7 @@ Approximate runtime: 19 seconds.
 6. Reveal off-platform payment, direct transfer and personal-data risks.
 7. Reject the listing and hold the final trust frame.
 
-The final German AI-to-AI dialogue and its duration are **pending team-supplied audio**. Current transcript entries are structural timing fixtures, not final call copy.
+The German AI-to-AI dialogue is supplied and synchronized to six local WAV clips. The call lasts 46.925 seconds after approval; see `CALL_SCRIPT.md`.
 
 ## Global controls
 

@@ -26,6 +26,6 @@ Motion is limited to opacity, transform, progress width and small waveform scali
 
 `R` and `Escape` cancel the animation frame, reset elapsed time, clear approval, stop and rewind future audio, increment the session key and restore the home cursor. Refresh never persists playback state.
 
-## Pending call-audio handoff
+## Call-audio handoff
 
-The orchestrator has one audio boundary at the Scenario 3 approval click. Final German files must be local, fictional voices, and accompanied by timestamped transcript data. Audio should not be added to critical preload until the final files are supplied and verified.
+The orchestrator has one audio boundary at the Scenario 3 approval click. It plays the local 46.925-second German master and drives the transcript and risk ledger from the same clock. Reset and pause affect both audio and visual state.
