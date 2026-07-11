@@ -40,7 +40,7 @@ Approximate runtime: 21.5 seconds.
 6. Reveal off-platform payment, direct transfer and personal-data risks.
 7. Reject the listing and hold the final trust frame.
 
-The German AI-to-AI dialogue is supplied and synchronized to six local WAV clips. The call lasts 46.925 seconds after approval; see `CALL_SCRIPT.md`.
+The German AI-to-AI dialogue uses five active local WAV clips at `1.3×`. German lines and English translations remain synchronized for 32.133 seconds after approval. The preserved sixth clip is excluded from playback; see `CALL_SCRIPT.md`.
 
 ## Global controls
 

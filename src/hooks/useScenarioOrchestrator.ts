@@ -11,8 +11,9 @@ import {
 
 type PlaybackStatus = "home" | "playing" | "paused" | "awaiting-approval" | "final";
 
-const APPROVAL_AT_MS = 4_000;
-const CALL_DURATION_MS = 46_925.238;
+const APPROVAL_AT_MS = 5_000;
+const CALL_DURATION_MS = 32_132.514;
+const CALL_PLAYBACK_RATE = 1.3;
 
 function isAudioAsset(path: string) {
   return /\.(m4a|mp3|wav|ogg)$/i.test(path);
@@ -89,6 +90,8 @@ export function useScenarioOrchestrator(audioRef: React.RefObject<HTMLAudioEleme
     if (!audio) return;
     audio.pause();
     audio.currentTime = 0;
+    audio.playbackRate = CALL_PLAYBACK_RATE;
+    audio.preservesPitch = true;
   }, [audioRef]);
 
   const cancelFrame = useCallback(() => {
@@ -141,6 +144,8 @@ export function useScenarioOrchestrator(audioRef: React.RefObject<HTMLAudioEleme
     const audio = audioRef.current;
     if (!audio) return;
     audio.currentTime = 0;
+    audio.playbackRate = CALL_PLAYBACK_RATE;
+    audio.preservesPitch = true;
     audio.muted = testModeRef.current;
     if (!testModeRef.current) void audio.play().catch(() => undefined);
   }, [audioRef]);
@@ -201,8 +206,9 @@ export function useScenarioOrchestrator(audioRef: React.RefObject<HTMLAudioEleme
       if (scenarioId === "foreign" && approvedRef.current) {
         const callElapsed = Math.max(0, elapsedRef.current - APPROVAL_AT_MS);
         const audio = audioRef.current;
-        if (audio && !testModeRef.current && callElapsed < CALL_DURATION_MS && Math.abs(audio.currentTime * 1_000 - callElapsed) > 350) {
-          audio.currentTime = callElapsed / 1_000;
+        const targetAudioMs = callElapsed * CALL_PLAYBACK_RATE;
+        if (audio && !testModeRef.current && callElapsed < CALL_DURATION_MS && Math.abs(audio.currentTime * 1_000 - targetAudioMs) > 350) {
+          audio.currentTime = targetAudioMs / 1_000;
         }
       }
 

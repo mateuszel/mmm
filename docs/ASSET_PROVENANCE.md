@@ -32,20 +32,22 @@ Exact generation prompts, dimensions, alt text and tool names are recorded in th
 
 ## Audio and subtitles
 
-Current presentation master: `audio/german-call/combined.wav`, assembled losslessly from six team-supplied WAV clips with 350 ms gaps. Clips 1/3/5 are Relyo and 2/4/6 are the fictional seller. Total duration is 46.925 seconds; clips 4 and 6 were duplicated from mono to stereo only in the combined master. The untouched source clips remain in `audio/german-call/`. Exact timings are stored in `call/german-transcript.json`.
+Current presentation master: `audio/german-call/combined-1-5.wav`, assembled losslessly from five team-supplied WAV clips with four 350 ms source gaps. Clips 1/3/5 are Relyo and 2/4 are the fictional seller. The source master is 41.772268 seconds and plays at `1.3×`, producing a 32.132514-second presentation call with approximately 269.231 ms audible gaps. Clip 4 was duplicated from mono to stereo only in the combined master. Clip `6.wav` remains untouched in `audio/german-call/` but is excluded from the active flow. Exact source and presentation timings are stored in `call/german-transcript.json`.
 
 The InPost mark at `/brand/inpost-logo.svg` was captured from the official `https://inpost.pl/themes/custom/inpost/logo.svg` asset on 2026-07-11. It appears only beside copy explicitly describing a planned delivery collaboration; it is not evidence of a live integration.
 
 | Deliverable | File | Provenance | Duration/status |
 |---|---|---|---|
-| Combined browser master | `audio/scenario-3-call-combined.m4a` | Two fictional local macOS German synthetic voices; [call script](CALL_SCRIPT.md) | 27.000 s, Accepted |
-| Agent/seller stems | `audio/scenario-3-call-{agent,seller}-stem.m4a` | Separate synthetic voices | 27.000 s each, Accepted |
-| Silent rehearsal | `audio/scenario-3-call-rehearsal-silent.m4a` | Deterministic silent export | 27.000 s; RMS 0, Accepted |
-| Live-presenter cues | `audio/scenario-3-call-live-presenter-cues.m4a` | Agent lines plus deterministic seller cues | 27.000 s, Accepted |
-| Transcript/captions | `call/transcript.json`, `call/subtitles-pl.vtt`, `call/subtitles-pl.srt` | Exact bilingual call script | Timings aligned, Accepted |
-| Waveform | `call/waveform.json`, `call/waveform-27s.svg` | Deterministic 4/4/5/5/3/3/3 s segments | 27.000 s, Accepted |
+| Active presentation master | `audio/german-call/combined-1-5.wav` | Five team-supplied fictional dialogue clips with four 350 ms source gaps; [call script](CALL_SCRIPT.md) | 41.772268 s source at `1.3×`; 32.132514 s presentation, Accepted |
+| Active transcript | `call/german-transcript.json` | German dialogue with source and presentation timings | Five clips aligned at `1.3×`, Accepted |
+| Previous synthetic master | `audio/scenario-3-call-combined.m4a` | Two fictional local macOS German synthetic voices | 27.000 s, retained fallback; not active |
+| Previous agent/seller stems | `audio/scenario-3-call-{agent,seller}-stem.m4a` | Separate synthetic voices | 27.000 s each, retained fallback; not active |
+| Silent rehearsal | `audio/scenario-3-call-rehearsal-silent.m4a` | Deterministic silent export | 27.000 s, retained fallback; not active |
+| Live-presenter cues | `audio/scenario-3-call-live-presenter-cues.m4a` | Agent lines plus deterministic seller cues | 27.000 s, retained fallback; not active |
+| Previous transcript/captions | `call/transcript.json`, `call/subtitles-pl.vtt`, `call/subtitles-pl.srt` | Previous bilingual synthetic call script | 27.000 s, retained fallback; not active |
+| Previous waveform | `call/waveform.json`, `call/waveform-27s.svg` | Deterministic 27-second waveform | Retained fallback; not active |
 
-WAV masters are retained for editing; M4A copies are used for browser playback. No API key, network TTS, real-person imitation or phone call was used.
+The active browser flow uses the five-clip WAV master at `1.3×`; the earlier M4A exports remain fallback material only. No API key, network TTS, real-person imitation or phone call was used.
 
 ## Privacy and factual review
 

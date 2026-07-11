@@ -4,6 +4,7 @@ c1d3f39f01489f9c03d62fe2640aaa911323e3160fa944afb54905a7f9c271a9  ./audio/german
 f64c89f1b6b68d2c1830e3e3f4f86997a016c0a04322543bdefa4433d999da75  ./audio/german-call/4.wav
 5e44ef9b8d7719ba3f818d0cf64cbb0ba3414057e5667bcc6fef023dcd357c69  ./audio/german-call/5.wav
 ed5ff1beb2fa2c225271705f7ee0d905f223103ccb590671d7f06a66e8da8524  ./audio/german-call/6.wav
+2082ce5e37ec4d0f1385ee14ecc61d57088a0b02ba64c21b6aadf2c7062402cc  ./audio/german-call/combined-1-5.wav
 01b4bc470b4205eb45421ac914fa6aac497856ad2403aadee2e6bac6cb4787c7  ./audio/german-call/combined.wav
 779fd5eb4b41ccde0470a93b8eed41e7bb50c59b103e93b0ffd8453189666b40  ./audio/scenario-3-call-agent-stem.m4a
 c9d73d434d8ac5fb484358be9ea000583a43ae2c0131d4d2f3de91a01f5e26dc  ./audio/scenario-3-call-agent-stem.wav
@@ -15,7 +16,7 @@ efbae4f20f4dad22b3d23c8284cb11d448710b7837fbe42c6a290d13a37ff343  ./audio/scenar
 d6e758f8536fe3088f6eba4113857ff096eb8f5c8f2565089b8c0ef73806ecd0  ./audio/scenario-3-call-rehearsal-silent.wav
 24cd72eac406c0721de399717468081a3a5d01c1d7ea77f1ef238ebe1a4678dd  ./audio/scenario-3-call-seller-stem.m4a
 3cfe34f6118900eb51bb7ed5db8f2f81501e8909772f9c9b8d0eb617c3272578  ./audio/scenario-3-call-seller-stem.wav
-076dc6d2c8d5a8dfe4cb1724e36e4baba8b1518c131cd19e9572eb51d34a600f  ./call/german-transcript.json
+618bc4a0ffafdf671d130ff27ea218aaf316f6b5c3adf83038dce80ba8acd8b4  ./call/german-transcript.json
 c33b6e4078a20845fa980ca90e0b529554d7b9dd5b427b4e66f13b6ab7b29f80  ./call/live-presenter-cues.json
 14786e339b1b085f8e3e2484656d39106aa736830592da3cea1f8f260b03d7d9  ./call/metadata.json
 0f5cb3b5d4f335d9cda593edb249a992e3e82275a57f3010c8559a631fc1e79b  ./call/subtitles-pl.srt
@@ -25,11 +26,12 @@ aa54aa7c6953ed05b13879c16c4e60ed1755101d98ed9181f31e63751748c161  ./call/subtitl
 3e1f6c01b1ad18edfbde0c5fdd8eae30250363e2ff2ad6c85ee2f97239697d5b  ./call/waveform.json
 5b018fa69dd38dd51e3e9c9990d9f55e52e6dad0266219e7e1fa921b82d35c83  ./icons/privacy-relay.svg
 79e6942b01cc1b13d82025c0d3e9a2062e0206a6ea3ced4dd7e30aebfd09f648  ./icons/verification-check.svg
-9110089f064e2708cb614a63cee048f77cb0fc8251893d53788203f093232fd9  ./manifest.json
+717fdcb1750453bd02e77cf5dfd04ab4081664381044c0def50f04757a3a7487  ./manifest.json
 97b24c77db96b5210baad4473985d8e1757a0826346976d8d087054b9cd49136  ./payment/payment-confirmation.svg
 e2ab7cfa2869731233c432c8b4b75829c7cb8cdbb198efb250f59ddbe8044d0c  ./product/adidas-samba-og-ig1024-source.webp
 778faf74ab08c2c33e0f6fa587acff0e61870554cb2f650c70c081017e3f6955  ./product/fujifilm-x100f-ebay-source.webp
 205f358bd2719182b5696252a8c23a21c3f24668590f30179efe7cdd206f8b1f  ./product/switch-bundle-simulated.png
+28f87730b5f709a76cad938424e0cdd0b9b0d4ca1caeca40666e6c15e78063e6  ./product/switch-serial-evidence.svg
 44f465769c57dbc782a8dfe3ae05f5e9229a413b11f0f069322d78cf14436d2f  ./product/switch-touchscreen-simulated.webp
 62a4cbf3715ab69c642a539f1797e8ab56db2f23960e52f3b58e8f3f0a1f862b  ./seller/avatar-foreign-imagegen.png
 1d864f055a44eb6c320a3b31c5f6da21c7ad8c684b519e090858730fe9a6e75b  ./seller/avatar-foreign.svg

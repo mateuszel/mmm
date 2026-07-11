@@ -28,4 +28,4 @@ Motion is limited to opacity, transform, progress width and small waveform scali
 
 ## Call-audio handoff
 
-The orchestrator has one audio boundary at the Scenario 3 approval click. It plays the local 46.925-second German master and drives the transcript and risk ledger from the same clock. Reset and pause affect both audio and visual state.
+The orchestrator has one audio boundary at the Scenario 3 approval click. It plays the five-clip local German master at `1.3×`, producing a 32.133-second presentation call. The German transcript, English translation and risk ledger share the same clock. Reset and pause affect both audio and visual state.

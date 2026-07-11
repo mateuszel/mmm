@@ -9,7 +9,7 @@ Status: **live presentation flow**.
 5. Press `Escape` to return home.
 6. Press `3`. Let the eBay source and call request appear.
 7. Click `Start protected call` once.
-8. Let the final German audio and transcript run, then hold on `Listing rejected`.
+8. Let the German audio, German transcript and English translation run, then hold on `Listing rejected`.
 
 The presenter does not expose or explain the keyboard shortcuts. Scenario 3 plays the supplied fictional German AI-to-AI dialogue and synchronized transcript after approval.
 

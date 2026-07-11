@@ -42,6 +42,6 @@ corepack pnpm test:e2e
 
 - Scenario 1: about 22.5 seconds.
 - Scenario 2: about 21.5 seconds.
-- Scenario 3: pre-call about 4 seconds plus 46.925 seconds of German dialogue.
+- Scenario 3: pre-call about 5 seconds plus 32.133 seconds of German dialogue at `1.3×` playback.
 
 These are presentation cues, not contractual timing. Reliability and readable state changes take priority.

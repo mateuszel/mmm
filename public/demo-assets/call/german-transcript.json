@@ -1,13 +1,70 @@
 {
   "language": "de-DE",
-  "duration_ms": 46925.238,
-  "inter_turn_gap_ms": 350,
+  "active_clip_count": 5,
+  "playback_rate": 1.3,
+  "duration_ms": 32132.514,
+  "source_master_duration_ms": 41772.268,
+  "source_inter_turn_gap_ms": 350,
+  "presentation_inter_turn_gap_ms": 269.231,
+  "master": "audio/german-call/combined-1-5.wav",
+  "excluded_from_active_flow": ["6.wav"],
   "lines": [
-    { "clip": "1.wav", "speaker": "Relyo", "start_ms": 0, "end_ms": 10843.810, "text": "Hallo! Ich melde mich wegen der Fujifilm X100V. Können Sie mir kurz sagen, in welchem technischen Zustand sie ist, und vielleicht noch ein paar Fotos schicken?" },
-    { "clip": "2.wav", "speaker": "Seller", "start_ms": 11193.810, "end_ms": 23152.290, "text": "Ähm ja, hören Sie, lassen Sie uns das doch privat regeln. Ich hab keine Lust auf die ganzen versteckten Gebühren bei eBay. Überweisen Sie mir das Geld einfach direkt, dann schicke ich Ihnen die Kamera. Ohne zusätzlichen Mist." },
-    { "clip": "3.wav", "speaker": "Relyo", "start_ms": 23502.290, "end_ms": 28375.306, "text": "Ähm, sorry, aber sicherheitshalber würde ich das lieber über eBay abwickeln." },
-    { "clip": "4.wav", "speaker": "Seller", "start_ms": 28725.306, "end_ms": 36468.912, "text": "Ich meine, das ist doch eine Win-win-Situation für uns beide. Ich schicke Ihnen die Zahlungsdaten, schicken Sie mir einfach die Lieferadresse über WhatsApp." },
-    { "clip": "5.wav", "speaker": "Relyo", "start_ms": 36818.912, "end_ms": 41772.268, "text": "Ähm, ich fühle mich einfach nicht wohl dabei, das außerhalb von eBay zu machen. Tut mir leid." },
-    { "clip": "6.wav", "speaker": "Seller", "start_ms": 42122.268, "end_ms": 46925.238, "text": "Ach, fahren Sie zur Hölle. Wenn Sie es nicht ernst meinen, verschwenden Sie nicht meine Zeit." }
-  ]
+    {
+      "clip": "1.wav",
+      "speaker": "Relyo",
+      "source_start_ms": 0,
+      "source_end_ms": 10843.810,
+      "start_ms": 0,
+      "end_ms": 8341.392,
+      "text": "Hallo! Ich melde mich wegen der Fujifilm X100V. Können Sie mir kurz sagen, in welchem technischen Zustand sie ist, und vielleicht noch ein paar Fotos schicken?",
+      "translation_en": "Hello! I’m calling about the Fujifilm X100V. Could you briefly confirm its technical condition and send a few more photos?"
+    },
+    {
+      "clip": "2.wav",
+      "speaker": "Seller",
+      "source_start_ms": 11193.810,
+      "source_end_ms": 23152.290,
+      "start_ms": 8610.623,
+      "end_ms": 17809.454,
+      "text": "Ähm ja, hören Sie, lassen Sie uns das doch privat regeln. Ich hab keine Lust auf die ganzen versteckten Gebühren bei eBay. Überweisen Sie mir das Geld einfach direkt, dann schicke ich Ihnen die Kamera. Ohne zusätzlichen Mist.",
+      "translation_en": "Let’s handle this privately. I don’t want the eBay fees. Transfer the money directly and I’ll send the camera.",
+      "risk": "Off-platform payment and direct transfer requested"
+    },
+    {
+      "clip": "3.wav",
+      "speaker": "Relyo",
+      "source_start_ms": 23502.290,
+      "source_end_ms": 28375.306,
+      "start_ms": 18078.685,
+      "end_ms": 21827.159,
+      "text": "Ähm, sorry, aber sicherheitshalber würde ich das lieber über eBay abwickeln.",
+      "translation_en": "Sorry, but for safety I would rather complete the transaction through eBay."
+    },
+    {
+      "clip": "4.wav",
+      "speaker": "Seller",
+      "source_start_ms": 28725.306,
+      "source_end_ms": 36468.912,
+      "start_ms": 22096.389,
+      "end_ms": 28053.009,
+      "text": "Ich meine, das ist doch eine Win-win-Situation für uns beide. Ich schicke Ihnen die Zahlungsdaten, schicken Sie mir einfach die Lieferadresse über WhatsApp.",
+      "translation_en": "It’s a win-win. I’ll send the payment details. Send me the delivery address through WhatsApp.",
+      "risk": "Payment details and personal data requested outside eBay"
+    },
+    {
+      "clip": "5.wav",
+      "speaker": "Relyo",
+      "source_start_ms": 36818.912,
+      "source_end_ms": 41772.268,
+      "start_ms": 28322.240,
+      "end_ms": 32132.514,
+      "text": "Ähm, ich fühle mich einfach nicht wohl dabei, das außerhalb von eBay zu machen. Tut mir leid.",
+      "translation_en": "I’m not comfortable doing this outside eBay. I’m sorry."
+    }
+  ],
+  "risk_thresholds_ms": {
+    "off_platform_request": 8610.623,
+    "direct_bank_transfer": 13076.923,
+    "personal_data_via_whatsapp": 22096.389
+  }
 }

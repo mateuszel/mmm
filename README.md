@@ -1,66 +1,86 @@
-# Relyo · Team MMM
+# Relyo
 
-Clean shared workspace for Team MMM at the OpenAI x START Warsaw Hackathon. The Solidgate challenge asks the team to explore a measurable, controlled AI shopping agent that can monitor offers, calculate the true delivered price, decide when a deal is valid, and act only within clear user consent.
+> **Buy when the mandate holds. Ask when evidence is missing. Stop when protection disappears.**
 
-> **Status: Static UI implementation.** The brand, deterministic static demo states and frozen evidence assets are implemented. Scenario playback, backend architecture and live integrations are not approved.
+Relyo is a source-backed shopping agent prototype built by **Team MMM** for the **OpenAI x START Warsaw Hackathon, Solidgate challenge**. A user defines the product, budget and safety boundaries once. Relyo compares the true delivered cost, gathers missing evidence, communicates within the mandate and produces an explainable decision.
+
+**Prototype status:** high-fidelity deterministic demo. It runs from local assets and does not perform live searches, calls, payments or seller contact.
+
+## Three moments
+
+| Key | Flow | What Relyo demonstrates | Outcome |
+|---|---|---|---|
+| `1` | **Retail: adidas Samba OG** | Compares source-backed offers, availability, promotions and landed cost against a hard cap. | Acts only when the retail mandate is satisfied. |
+| `2` | **Private seller: Nintendo Switch OLED** | Identifies evidence gaps, simulates a concise seller exchange and preserves protected checkout. | Prepares a verified deal for approval. No payment is made. |
+| `3` | **Risk boundary: Fujifilm X100F** | Pauses for call approval, then detects an off-platform transfer request in a simulated seller call. | Rejects the listing. No money or personal data is shared. |
+
+Scenario 3 requires one visible click to approve the **simulated** verification call. Press `Space` to pause or resume. Press `R` or `Esc` to return home.
+
+## Why it fits the Solidgate case
+
+- **True landed cost:** price, delivery and promotion conditions are evaluated together.
+- **Explicit authority:** product, spend, payment and communication rules remain visible.
+- **Calibrated action:** Relyo can act, ask for approval or stop.
+- **Decision receipts:** every outcome explains the evidence, rule and reason.
+- **Measurable safety:** the concept aims for useful strikes while minimizing false buys.
+
+## Trust by design
+
+1. **Mandate first:** hard caps and protected-payment rules precede action.
+2. **Source separation:** public captures remain visibly separate from deterministic calculations.
+3. **Approval gates:** sensitive channel changes require explicit user approval.
+4. **Stop conditions:** losing buyer protection ends the transaction.
+5. **Complete trail:** evidence, decisions and simulated outcomes remain auditable.
 
 ## Run locally
 
+Prerequisites: **Node.js 22** and Corepack.
+
 ```bash
-corepack pnpm install
+corepack enable
+corepack pnpm install --frozen-lockfile
 corepack pnpm dev
 ```
 
-Open `http://localhost:3000`. Every visit begins on the same Relyo home screen.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Current implementation boundaries
+## Validate
 
-- From the home screen, press `1`, `2` or `3` to run the corresponding deterministic scenario. Press `Esc` to cancel playback and return home.
-- Scenario 3 pauses for exactly one visible click: `Allow agent to call`.
-- `/demo` and `/states` redirect to the canonical home experience; internal playback states are not exposed in the product UI.
-- All scenario values and seller conversations are deterministic demo data.
-- Public adidas, eobuwie, OLX and eBay captures are local evidence assets and remain visually separate from simulated values.
-- No payment, marketplace, call, OpenAI or partner API is connected.
-- The Von Halsky card is a planned-integration preview, not a live integration claim.
+```bash
+corepack pnpm check
+corepack pnpm exec playwright install chromium
+corepack pnpm test:e2e
+```
 
-## Current hypothesis
+`check` runs ESLint, strict TypeScript checks, unit tests and a production build. End-to-end tests use the deterministic offline demo and require no API credentials.
 
-The leading idea is a proactive shopping negotiator. A user describes an item and constraints; the agent monitors deterministic listings, checks availability, compares equivalent offers, analyzes photos and condition for used goods, reads seller reputation, asks targeted questions, and may negotiate before presenting an explainable deal or approval request.
+## What is real, deterministic and simulated
 
-The product experience may have two surfaces: a minimal brand/pitch page and a focused interactive demo. The pitch slot is three minutes followed by two minutes of Q&A, so clarity, visual polish, and a reliable staged story matter more than feature breadth.
+| Classification | Included |
+|---|---|
+| **Public source captures** | Frozen public product, store and marketplace pages, their visible facts and documented provenance. A capture confirms only what the page displayed when recorded. |
+| **Deterministic demo** | Scenario timing, mandate rules, selected demo values, calculations, risk policy and final decisions. |
+| **Simulated integrations and actions** | Search execution, coupon validation, seller messages, generated evidence, negotiation, privacy relay, call, checkout, payment authorization and receipts. |
 
-Negotiation, image/condition analysis, seller research, proactive messaging, AP2, BLIK, coupon discovery, marketplace/private-seller flows, autonomous buying, and any live integration are **provisional**. None are implemented or confirmed requirements.
+Required UI labels include `Scripted demo · No live transactions`, `Simulated seller conversation`, `Simulated evidence`, `Simulated seller verification call` and `Simulated payment authorization`.
 
-## Read first
+## Disclosure
 
-- [Project context](docs/PROJECT_CONTEXT.md) - ten-minute orientation and status boundaries
-- [Official case](docs/OFFICIAL_CASE.md) - confirmed requirements from the Solidgate deck
-- [Current concept](docs/CURRENT_CONCEPT.md) - provisional team hypothesis
-- [Product brief](docs/PRODUCT_BRIEF.md) - working problem, journey, risks, and non-goals
-- [Open decisions](docs/OPEN_DECISIONS.md) - decisions required before coding
-- [Presentation context](docs/PRESENTATION_CONTEXT.md) - narrative and claims to validate
-- [Cinematic demo vision](docs/CINEMATIC_DEMO_VISION.md) - provisional 126-second product story
-- [Demo storyboard](docs/DEMO_STORYBOARD.md), [exact copy](docs/DEMO_COPY.md), and [scenario timelines](docs/SCENARIO_TIMELINES.md)
-- [Interaction specification](docs/INTERACTION_SPEC.md), [asset manifest](docs/ASSET_MANIFEST.md), and [call script](docs/CALL_SCRIPT.md)
-- [Real source map](docs/REAL_SOURCE_MAP.md) and [asset provenance](docs/ASSET_PROVENANCE.md) - frozen public sources, generated assets, privacy review, audio, and known gaps
-- [Pitch flow](docs/PITCH_FLOW.md), [market context](docs/MARKET_CONTEXT.md), and [claims gate](docs/CLAIMS_AND_SIMULATIONS.md)
-- [Brand direction](docs/BRAND_DIRECTION.md) - provisional name, identity, motif and design tokens
-- [Architecture](docs/ARCHITECTURE.md) - approved static frontend boundary and remaining open areas
-- [Team workflow](docs/TEAM_WORKFLOW.md) - future collaboration model
-- [Decision log](docs/DECISIONS.md) and [research log](docs/RESEARCH.md)
+- No real seller was contacted, called, negotiated with or associated with scripted behavior.
+- No live adidas, eobuwie, OLX, eBay, InPost, BLIK, Solidgate or OpenAI integration runs during playback.
+- No real payment, phone relay or marketplace checkout occurs.
+- The mandate is an **AP2-aligned concept**, not a claim of AP2 compliance.
+- Public captures are references, not evidence of partnership, endorsement, current inventory, authenticity or seller safety.
+- **InPost delivery handoff is planned by Team MMM as a product direction. It is not a live integration, confirmed partnership or available InPost API connection.**
 
-## Repository state
+See [Claims and simulations](docs/CLAIMS_AND_SIMULATIONS.md), [Asset provenance](docs/ASSET_PROVENANCE.md) and [Official case](docs/OFFICIAL_CASE.md) for the evidence and language gates.
 
-The active tree now contains one minimal Next.js static frontend plus documentation and local assets. The demo uses three different public product/listing references, while all seller contact, calls, negotiation, payments and integrations remain clearly simulated. Earlier experiments remain recoverable from Git history and an offline backup.
+## Where OpenAI fits
 
-## Working together
+The production direction uses OpenAI capabilities for natural-language intent, structured mandate creation, evidence synthesis, tool selection and bounded agent decisions. Hackathon playback is deterministic so the demo remains reliable without an API key.
 
-1. Create a short branch from current `main` (`docs/*`, later `feat/*`, `fix/*`, or `chore/*`).
-2. Keep commits small and open a pull request using the repository template.
-3. Link the relevant open decision or issue; update documentation when a decision changes.
-4. Avoid simultaneous edits to shared context and contract files.
-5. Keep `main` stable; never commit secrets or claim a mock is live.
+## Team MMM
 
-## Decisions required before runtime implementation
-
-At minimum: final value proposition, primary differentiator, runtime autonomy boundary, AP2/BLIK roles, evaluation plan, backend/shared-contract boundary, deployment, and whether any Solidgate integration is needed. See [Open decisions](docs/OPEN_DECISIONS.md).
+- Maksymilian Marcinkowski
+- Mateusz Lambert
+- Mateusz Kucharski

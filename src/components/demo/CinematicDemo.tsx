@@ -18,7 +18,7 @@ import {
 } from "@phosphor-icons/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { callLines, privateMarketSources, retailSources, scenarios, type ScenarioId } from "@/lib/demo/scenario-data";
 import { useScenarioOrchestrator } from "@/hooks/useScenarioOrchestrator";
 
@@ -53,6 +53,17 @@ function formatTimer(milliseconds: number) {
   return `00:${String(seconds).padStart(2, "0")}`;
 }
 
+function useAutoScroll(trigger: string | number | boolean) {
+  const ref = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      if (ref.current) ref.current.scrollTop = ref.current.scrollHeight;
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [trigger]);
+  return ref;
+}
+
 function MiniBrand({ large = false }: { large?: boolean }) {
   return <img className={large ? "cinema-brand cinema-brand--large" : "cinema-brand"} src="/brand/relyo-wordmark.svg" alt="Relyo" />;
 }
@@ -71,6 +82,8 @@ function HomeScreen({ start }: { start: (scenario: Exclude<Scenario, "home">) =>
   const [draft, setDraft] = useState("");
   const [activity, setActivity] = useState<string[]>([]);
   const [menu, setMenu] = useState<"profile" | "settings" | "activity" | null>(null);
+  const [composerState, setComposerState] = useState<"idle" | "searching" | "soon">("idle");
+  const [toolPulse, setToolPulse] = useState<string | null>(null);
   const cards = [
     { scenario: "retail" as const, image: `${A}/product/adidas-samba-og-ig1024-source.webp`, title: "Buy adidas Samba OG", body: "Compare true cost and act inside a hard cap." },
     { scenario: "private" as const, image: `${A}/product/switch-bundle-simulated.png`, title: "Verify a private listing", body: "Collect evidence and negotiate safely." },
@@ -80,7 +93,19 @@ function HomeScreen({ start }: { start: (scenario: Exclude<Scenario, "home">) =>
   const submitDraft = (event: React.FormEvent) => {
     event.preventDefault();
     if (!draft.trim()) return;
-    setActivity(["Request saved locally · no search started"]);
+    setComposerState("searching");
+    setActivity(["Request received. Personalized search is coming soon."]);
+  };
+
+  useEffect(() => {
+    if (composerState !== "searching") return;
+    const timer = window.setTimeout(() => setComposerState("soon"), 1_100);
+    return () => window.clearTimeout(timer);
+  }, [composerState]);
+
+  const pulseTool = (tool: string) => {
+    setToolPulse(tool);
+    window.setTimeout(() => setToolPulse(null), 420);
   };
 
   return (
@@ -97,12 +122,13 @@ function HomeScreen({ start }: { start: (scenario: Exclude<Scenario, "home">) =>
         <section className="home-workspace">
           <div className="home-intro">
             <div className="home-mark"><img src="/brand/relyo-symbol.svg" alt="Relyo protected handoff" /></div>
-            <div><h1>Hello. I’m Relyo.<br />Your AI shopping agent.</h1><p>I research, compare, and buy on your behalf—<br />only within your mandate, always with proof.</p></div>
+            <div><h1>Hello. I’m Relyo.<br />Your AI shopping agent.</h1><p>I research, compare, and buy on your behalf,<br />only within your mandate, always with proof.</p></div>
           </div>
           <form data-testid="home-composer" className="home-composer" onSubmit={submitDraft}>
-            <div><textarea data-testid="home-composer-input" aria-label="Shopping request" value={draft} onChange={(event) => setDraft(event.target.value)} placeholder="What would you like me to find or buy?" /><small>{activity.length ? "Request saved. Choose an example below or refine your preferences." : "Include the item, preferences, budget and timing."}</small></div>
-            <div className="home-composer__tools"><Paperclip /><Tag /><SlidersHorizontal /></div>
+            <div><textarea data-testid="home-composer-input" aria-label="Shopping request" value={draft} onChange={(event) => { setDraft(event.target.value); setComposerState("idle"); }} placeholder="What would you like me to find or buy?" /><small>{composerState === "searching" ? "Preparing your search…" : composerState === "soon" ? "Personalized live search is coming soon. Try an example below." : "Include the item, preferences, budget and timing."}</small></div>
+            <div className="home-composer__tools">{[["attach", Paperclip], ["tag", Tag], ["preferences", SlidersHorizontal]].map(([name, Icon]) => <button key={String(name)} type="button" aria-label={String(name)} onClick={() => pulseTool(String(name))} className={toolPulse === name ? "tool-pulse" : ""}><Icon /></button>)}</div>
             <button data-testid="home-composer-submit" type="submit" aria-label="Prepare shopping request" disabled={!draft.trim()}><img src="/brand/relyo-symbol.svg" alt="" /></button>
+            {composerState === "searching" && <span className="composer-search-pulse"><CircleNotch className="spin-slow" />Searching</span>}
           </form>
           <div className="scenario-heading"><span>Start with an example</span><i /></div>
           <div className="home-scenarios">
@@ -132,7 +158,7 @@ function ScenarioLaunch({ scenario, elapsedMs }: { scenario: ScenarioId; elapsed
     <header><MiniBrand /><span>Protected shopping session</span><ShieldCheck size={24} /></header>
     <main>
       <div className="session-launch__mark"><img src="/brand/relyo-symbol.svg" alt="" /></div>
-      <div className="session-launch__composer" data-enter><span>Your request</span><p><TypedText text={request} elapsedMs={elapsedMs} startMs={0} durationMs={2_000} /></p><div><i style={{ width: `${Math.min(100, elapsedMs / 20)}%` }} /></div><small>{elapsedMs < 2_000 ? "Typing request…" : "Request understood · opening workspace"}</small></div>
+      <div className="session-launch__composer" data-enter><span>Your request</span><p><TypedText text={request} elapsedMs={elapsedMs} startMs={0} durationMs={1_500} /></p><div><i style={{ width: `${Math.min(100, elapsedMs / 15)}%` }} /></div><small>{elapsedMs < 1_500 ? "Typing request…" : "Request understood. Opening workspace."}</small></div>
     </main>
     <footer><ShieldCheck />Relyo acts only inside the visible mandate.</footer>
   </div>;
@@ -188,6 +214,7 @@ function RetailScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string }
   const showCosts = elapsedMs >= 18_500;
   const decided = elapsedMs >= 21_000;
   const receipt = elapsedMs >= 22_500;
+  const decisionScrollRef = useAutoScroll(`${showCoupon}:${showCosts}:${receipt}`);
   return (
     <div className="cinema cinema--workspace" data-testid="scenario-screen" data-scenario="retail" data-stage={phase}>
       <WorkspaceHeader scenario="retail" phase={phase} />
@@ -222,17 +249,17 @@ function RetailScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string }
         <aside className="decision-trail soft-panel">
           <div className="panel-title panel-title--large"><strong>Decision trail</strong></div>
           <div className={`trail-empty trail-layer ${showDecision ? "layer-hidden" : "layer-active"}`}><CircleNotch className="spin-slow" size={42} /><strong>Comparing true cost</strong><span>Product · delivery · returns · coupon</span></div>
-          <div className={`decision-content trail-layer ${showDecision ? "layer-active" : "layer-hidden"}`}>
+          <div ref={decisionScrollRef as React.RefObject<HTMLDivElement>} className={`decision-content trail-layer ${showDecision ? "layer-active" : "layer-hidden"}`}>
             <div className={decided ? "selected-offer" : "selected-offer selected-offer--pending"}><CheckCircle weight="fill" /><span><small>{decided ? "Selected offer" : "Validating finalist"}</small><strong>adidas.pl</strong></span></div>
             <span className="source-badge">Offer analysis · captured source unchanged</span>
-            <div className="cost-lines"><p><span>Displayed price</span><strong>396.75 PLN</strong></p><p><span>SUMMER30</span><strong>{showCoupon ? "Valid · −30%" : "Validating"}</strong></p><p><span>Subtotal</span><strong>{showCosts ? "277.73 PLN" : "—"}</strong></p><p><span className="inpost-inline"><img src="/brand/inpost-logo.svg" alt="InPost" />delivery</span><strong>{showCosts ? "0.00 PLN" : "—"}</strong></p><p className="cost-total"><span>True landed cost</span><strong>{showCosts ? "277.73 PLN" : "Calculating"}</strong></p></div>
+            <div className="cost-lines"><p><span>Displayed price</span><strong>396.75 PLN</strong></p><p><span>SUMMER30</span><strong>{showCoupon ? "Valid, -30%" : "Validating"}</strong></p><p><span>Subtotal</span><strong>{showCosts ? "277.73 PLN" : "Calculating"}</strong></p><p><span className="inpost-inline"><img src="/brand/inpost-logo.svg" alt="InPost" />delivery</span><strong>{showCosts ? "0.00 PLN" : "Calculating"}</strong></p><p className="cost-total"><span>True landed cost</span><strong>{showCosts ? "277.73 PLN" : "Calculating"}</strong></p></div>
             <div className="offer-checks">
               <h3>All checked offers</h3>
               <div className="offer-row offer-row--good"><CheckCircle weight="fill" /><span><strong>adidas.pl</strong><small>277.73 PLN · validated discount</small></span><em>{decided ? "Selected" : "Candidate"}</em></div>
               <div className={`offer-row offer-row--bad ${showCoupon ? "slot-visible" : "slot-hidden"}`}><X /><span><strong>eobuwie.pl</strong><small>339.99 PLN · promotion unavailable</small></span><em>Rejected</em></div>
-              <div className={`coupon-row coupon-row--valid ${showCoupon ? "slot-visible" : "slot-hidden"}`}><Tag /><span><strong>SUMMER30 validated</strong><small>Offer rule · −119.02 PLN</small></span></div>
+              <div className={`coupon-row coupon-row--valid ${showCoupon ? "slot-visible" : "slot-hidden"}`}><Tag /><span><strong>SUMMER30 validated</strong><small>Offer rule: -119.02 PLN</small></span></div>
             </div>
-            <div data-testid="retail-final" className={`mandate-result ${receipt ? "slot-visible" : "slot-hidden"}`}><ShieldCheck /><span><strong>Protected handoff complete</strong><small>Verified discounts only · 277.73 PLN final · planned InPost delivery collaboration</small></span></div>
+            <div data-testid="retail-final" className={`mandate-result ${receipt ? "slot-visible" : "slot-hidden"}`}><ShieldCheck /><span><strong>Protected handoff complete</strong><small>Verified discounts only. 277.73 PLN final. Team-planned InPost delivery handoff.</small></span></div>
           </div>
         </aside>
       </main>
@@ -264,6 +291,8 @@ function PrivateScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string 
   const checkout = elapsedMs >= 18_000;
   const ready = elapsedMs >= 20_000;
   const final = elapsedMs >= 21_500;
+  const threadScrollRef = useAutoScroll(`${evidenceCount}:${showNegotiation}:${showCounter}:${showAccept}`);
+  const checkoutScrollRef = useAutoScroll(`${checkout}:${ready}:${final}`);
   return (
     <div className="cinema cinema--workspace" data-testid="scenario-screen" data-scenario="private" data-stage={phase}>
       <WorkspaceHeader scenario="private" phase={phase} />
@@ -272,24 +301,24 @@ function PrivateScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string 
           <div className="section-heading"><MagnifyingGlass /><div><strong>{showSource ? "Selected OLX offer" : "Marketplace search"}</strong><span>{showSource ? "Captured source · seller details protected" : "Six resale sources checked"}</span></div></div>
           <div className="private-source-stage" data-testid="private-source-stage">
             <div className={`market-search-layer ${showSource ? "layer-hidden" : "layer-active"}`}><PrivateMarketSearch elapsedMs={elapsedMs} /></div>
-            <div className={`olx-result-layer ${showSource ? "layer-active" : "layer-hidden"}`}><div className="olx-capture"><SourceBadge /><img src={`${A}/sources/olx/olx-switch-search-demo-column.png`} alt="Cropped, unmodified OLX Nintendo Switch OLED search-results capture" /></div></div>
+            <div className={`olx-result-layer ${showSource ? "layer-active" : "layer-hidden"}`}><div className="olx-capture"><SourceBadge /><img src={`${A}/sources/olx/olx-switch-search-demo-column.png`} alt="Cropped, unmodified OLX Nintendo Switch OLED search-results capture" /><div className="source-price-badge"><span>Listed price</span><strong>1,050 PLN</strong></div></div></div>
           </div>
           <div className="source-integrity"><ShieldCheck /><span><strong>Protected source handling</strong><small>Seller identity redacted. Agent messages remain inside the prepared flow.</small></span></div>
         </section>
-        <section className="seller-thread soft-panel" data-testid="seller-thread-panel">
+        <section ref={threadScrollRef as React.RefObject<HTMLElement>} className="seller-thread soft-panel" data-testid="seller-thread-panel">
           <div className="section-heading"><span className="chat-icon">••</span><div><strong>Seller conversation</strong><span>Agent communication · no personal number shared</span></div></div>
-          <div className={`evidence-gap-list thread-slot ${elapsedMs >= 6_500 ? "slot-visible" : "slot-hidden"}`}>{["Screen condition", "Serial number", "Included accessories"].map((item, index) => <p key={item} className={evidenceCount > index ? "is-verified" : ""}>{evidenceCount > index ? <CheckCircle weight="fill" /> : <Warning />}{evidenceCount > index ? "Verified" : "Missing"} · {item}</p>)}</div>
+          <div className={`evidence-gap-list thread-slot ${elapsedMs >= 6_500 ? "slot-visible" : "slot-hidden"}`}>{showNegotiation ? <div className="negotiation-summary"><span>Listed<strong>1,050 PLN</strong></span><i className="negotiation-connector" /><span>Relyo offer<strong>880 PLN</strong></span><i className="negotiation-connector" /><span>Agreed<strong>{showCounter ? "930 PLN" : "Pending"}</strong></span></div> : ["Screen condition", "Serial number", "Included accessories"].map((item, index) => <p key={item} className={evidenceCount > index ? "is-verified" : ""}>{evidenceCount > index ? <CheckCircle weight="fill" /> : <Warning />}{evidenceCount > index ? "Verified" : "Missing"}: {item}</p>)}</div>
           <div className={`thread-message thread-slot ${showQuestion ? "slot-visible" : "slot-hidden"}`}><img src="/brand/relyo-symbol.svg" alt="" /><div><strong>Relyo</strong><p><TypedText text="Hello! I’m interested in the Nintendo Switch OLED from your listing. Could you send a photo of the screen, the console serial number, and confirm that all accessories are included?" elapsedMs={elapsedMs} startMs={8_000} durationMs={2_500} /></p><em>Evidence request</em></div></div>
-          <div className={`thread-message thread-message--seller thread-slot ${showReply ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/seller/avatar-private.svg`} alt="Seller" /><div><strong>Seller</strong><p>Of course — I’m sending the photos now.</p><div className="evidence-thumbs"><figure className={evidenceCount >= 1 ? "slot-visible" : "slot-hidden"}><img src={`${A}/product/switch-touchscreen-simulated.webp`} alt="Screen evidence" /><figcaption>Screen</figcaption></figure><figure className={evidenceCount >= 2 ? "slot-visible" : "slot-hidden"}><img src={`${A}/product/switch-bundle-simulated.png`} alt="Bundle evidence" /><figcaption>Bundle</figcaption></figure><figure className={`evidence-serial ${evidenceCount >= 3 ? "slot-visible" : "slot-hidden"}`}><ShieldCheck /><figcaption>Serial</figcaption></figure></div></div></div>
+          <div className={`thread-message thread-message--seller thread-slot ${showReply ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/seller/avatar-private.svg`} alt="Seller" /><div><strong>Seller</strong><p>Of course, I’m sending the photos now.</p><div className="evidence-thumbs"><figure className={evidenceCount >= 1 ? "slot-visible" : "slot-hidden"}><img src={`${A}/product/switch-touchscreen-simulated.webp`} alt="Screen evidence" /><figcaption>Screen</figcaption></figure><figure className={evidenceCount >= 2 ? "slot-visible" : "slot-hidden"}><img src={`${A}/product/switch-bundle-simulated.png`} alt="Bundle evidence" /><figcaption>Bundle</figcaption></figure><figure className={evidenceCount >= 3 ? "slot-visible" : "slot-hidden"}><img src={`${A}/product/switch-serial-evidence.svg`} alt="Serial label evidence" /><figcaption>Serial label</figcaption></figure></div></div></div>
           <div className={`thread-message thread-slot ${showNegotiation ? "slot-visible" : "slot-hidden"}`}><img src="/brand/relyo-symbol.svg" alt="" /><div><strong>Relyo</strong><p>Thank you. Could we complete the deal for 880 PLN with OLX shipping?</p><em>Offer · 880 PLN</em></div></div>
           <div className={`thread-message thread-message--seller thread-slot ${showCounter ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/seller/avatar-private.svg`} alt="Seller" /><div><strong>Seller</strong><p>My lowest price is 930 PLN with OLX shipping.</p><em>Counteroffer · 930 PLN</em></div></div>
           <div className={`thread-success thread-slot ${showAccept ? "slot-visible" : "slot-hidden"}`}><CheckCircle weight="fill" />I accept 930 PLN with OLX shipping. Buyer protection remains active.</div>
         </section>
-        <aside className="checkout-panel soft-panel" data-testid="checkout-panel">
+        <aside ref={checkoutScrollRef as React.RefObject<HTMLElement>} className="checkout-panel soft-panel" data-testid="checkout-panel">
           <div className="section-heading"><LockKey /><div><strong>Protected checkout summary</strong><span>Approval required</span></div></div>
           <div className="checkout-product"><img src={`${A}/product/switch-bundle-simulated.png`} alt="Nintendo Switch bundle" /><div><strong>Nintendo Switch OLED bundle</strong><span>Used · evidence collected</span></div></div>
-          <div className="checkout-cost"><p><span>Agreed price</span><strong>{checkout ? "930.00 PLN" : "—"}</strong></p><p><span className="inpost-inline"><img src="/brand/inpost-logo.svg" alt="InPost" />delivery</span><strong>{checkout ? "0.00 PLN" : "—"}</strong></p><p><span>Buyer protection</span><strong>{checkout ? "Included" : "Required"}</strong></p><p><span>Total due</span><strong>{checkout ? "930.00 PLN" : "—"}</strong></p></div>
-          <div className="planned-inpost"><img src="/brand/inpost-logo.svg" alt="InPost" /><span><strong>Planned delivery collaboration</strong><small>Paczkomat, courier, tracking and returns</small></span></div>
+          <div className="checkout-cost"><p><span>Listed price</span><strong>1,050.00 PLN</strong></p><p><span>Agreed price</span><strong>{checkout ? "930.00 PLN" : "Pending"}</strong></p><p><span className="inpost-inline"><img src="/brand/inpost-logo.svg" alt="InPost" />delivery</span><strong>{checkout ? "0.00 PLN" : "Pending"}</strong></p><p><span>Buyer protection</span><strong>{checkout ? "Included" : "Required"}</strong></p><p><span>Total due</span><strong>{checkout ? "930.00 PLN" : "Pending"}</strong></p></div>
+          <div className={`planned-inpost ${checkout ? "slot-visible" : "slot-hidden"}`}><img src="/brand/inpost-logo.svg" alt="InPost" /><span><strong>Planned delivery option found</strong><small>Paczkomat, courier, tracking and returns</small></span></div>
           <button type="button" className={checkout ? "checkout-button is-ready" : "checkout-button"}><LockKey />{checkout ? "Protected checkout prepared" : "Waiting for verified evidence"}</button>
           <div className="evidence-ledger"><h3>Evidence ledger</h3>{["OLX source captured", "Screen photo received", "Serial number received", "Accessories confirmed", "Negotiation completed", "Buyer protection active"].map((item, index) => { const completedAt = [5_500, 11_000, 11_800, 12_600, 17_000, 18_000][index]; return <p key={item} className={elapsedMs >= completedAt ? "is-complete" : ""}><span>{item}</span><CheckCircle /></p>; })}</div>
           <div data-testid="private-final" className={`protected-ready ${ready ? "slot-visible" : "slot-hidden"}`}><ShieldCheck /><span><strong>{final ? "Verified deal ready" : "Protected checkout prepared"}</strong><small>930 PLN · buyer protection included · no payment made</small></span></div>
@@ -303,12 +332,14 @@ function PrivateScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string 
 function ForeignScreen({ elapsedMs, callElapsedMs, phase, status, approve }: { elapsedMs: number; callElapsedMs: number; phase: string; status: string; approve: () => void }) {
   const phoneRequested = elapsedMs >= 2_500;
   const approval = status === "awaiting-approval";
-  const calling = callElapsedMs > 0 && callElapsedMs < 46_925.238;
-  const ended = callElapsedMs >= 46_925.238;
-  const warning = callElapsedMs >= 11_193.810;
-  const directTransfer = callElapsedMs >= 17_000;
-  const personalData = callElapsedMs >= 28_725.306;
-  const rejected = elapsedMs >= 50_925.238;
+  const calling = callElapsedMs > 0 && callElapsedMs < 32_132.514;
+  const ended = callElapsedMs >= 32_132.514;
+  const warning = callElapsedMs >= 8_610.623;
+  const directTransfer = callElapsedMs >= 13_076.923;
+  const personalData = callElapsedMs >= 22_096.389;
+  const rejected = elapsedMs >= 37_132.514;
+  const transcriptScrollRef = useAutoScroll(`${callLines.filter((line) => (calling || ended) && callElapsedMs >= line.startMs).length}:${rejected}`);
+  const riskScrollRef = useAutoScroll(`${warning}:${directTransfer}:${personalData}:${rejected}`);
   return (
     <div className="cinema cinema--workspace" data-testid="scenario-screen" data-scenario="foreign" data-stage={phase}>
       <WorkspaceHeader scenario="foreign" phase={phase} />
@@ -318,24 +349,24 @@ function ForeignScreen({ elapsedMs, callElapsedMs, phase, status, approve }: { e
           <div className="auth-source-title"><span>Captured eBay market reference</span><ShieldCheck /></div>
           <img className="ebay-capture" src={`${A}/sources/foreign/ebay-x100f-search-viewport.webp`} alt="Unmodified eBay Fujifilm X100F search capture" />
           <SourceBadge />
-          <div className="deterministic-listing"><span>Target listing summary</span><div><img src={`${A}/product/fujifilm-x100f-ebay-source.webp`} alt="Fujifilm camera reference" /><section><h3>Fujifilm X100V</h3><p>Used · €1,100 + €20 delivery</p><small>Offer analysis shown separately from the captured market page.</small></section></div></div>
+          <div className="deterministic-listing"><span>Target listing summary</span><div><img src={`${A}/sources/foreign/ebay-x100f-search-result-card.webp`} alt="Captured Fujifilm market reference" /><section><h3>Fujifilm X100V</h3><p>Used, €1,100 + €20 delivery</p><p>Estimated duty: €0 for EU route</p><p><strong>Estimated landed cost: €1,120</strong></p><small>Deterministic target analysis shown separately from the captured X100F market reference.</small></section></div></div>
         </section>
-        <section className="call-workspace soft-panel">
+        <section className={`call-workspace soft-panel ${approval ? "call-workspace--approval" : ""} ${calling || ended ? "call-workspace--active" : ""}`}>
           <div className="numbered-heading"><b>2</b><strong>Seller verification call</strong><span>{approval ? "Approval required" : calling ? "Protected call" : ended ? "Call ended" : "Verifying listing"}</span></div>
-          <div className={`seller-call-request call-request-slot ${phoneRequested && !calling && !ended ? "slot-visible" : "slot-hidden"}`}><p><strong>Relyo</strong>Hello! I’m contacting you about the Fujifilm X100V. Is it still available? Could you confirm its technical condition, any visible wear and what is included?</p><p><strong>Seller</strong>Yes, it’s available. Please call me. It will be easier to explain.</p></div>
-          <div className={phoneRequested ? "call-preflight" : "call-preflight is-hidden"} data-enter><div><strong>The seller wants to continue by phone</strong><p>I can call through a privacy-protected relay and verify the transaction conditions.</p></div><div><Phone weight="fill" /><strong>+49 ••• ••• 4821</strong></div>{approval ? <button data-testid="start-protected-call" type="button" onClick={approve}>Start protected call</button> : calling ? <span className="call-live"><i />Call in progress</span> : ended ? <span>Call ended · policy enforced</span> : <span>Preparing protected relay</span>}</div>
-          <div className={calling || ended ? "call-session" : "call-session call-session--preview"} data-enter>
+          {!approval && !calling && !ended ? <div className={`seller-call-request call-request-slot ${phoneRequested ? "slot-visible" : "slot-hidden"}`}><p><strong>Relyo</strong>Is the Fujifilm X100V available? Please confirm its condition and included items.</p><p><strong>Seller</strong>Yes. Please call me. It will be easier to explain.</p></div> : <div aria-hidden="true" />}
+          {!calling && !ended ? <div className={phoneRequested ? "call-preflight" : "call-preflight is-hidden"} data-enter><div><strong>The seller wants to continue by phone</strong><p>I can call through a privacy-protected relay and verify the transaction conditions.</p></div><div><Phone weight="fill" /><strong>+49 ••• ••• 4821</strong></div>{approval ? <button data-testid="start-protected-call" type="button" onClick={approve}>Start protected call</button> : <span>Preparing protected relay</span>}</div> : <div aria-hidden="true" />}
+          {calling || ended ? <div className="call-session" data-enter>
             <div className="call-session__meta"><span><i />{approval ? "Ready after approval" : ended ? "Call ended" : "Call in progress"}</span><strong data-testid="call-timer">{formatTimer(callElapsedMs)}</strong><span>German transcript · synchronized audio</span></div>
             <div className={calling ? "waveform-live" : "waveform-live is-idle"} aria-label="Call waveform">{Array.from({ length: 42 }, (_, index) => <i key={index} style={{ height: `${12 + ((index * 17) % 36)}px`, animationDelay: `${index * -45}ms` }} />)}</div>
-            <div className="transcript-stream" data-testid="call-transcript">
-              {callLines.map((line) => { const visible = callElapsedMs >= line.startMs; const active = callElapsedMs >= line.startMs && callElapsedMs < line.endMs; const progress = active ? Math.min(100, ((callElapsedMs - line.startMs) / (line.endMs - line.startMs)) * 100) : callElapsedMs >= line.endMs ? 100 : 0; return <div key={line.startMs} className={`${line.risk ? "is-risk" : ""} ${visible ? "slot-visible" : "slot-hidden"} ${active ? "is-active" : ""}`}><time>{formatTimer(line.startMs)}</time><p><strong>{line.speaker}</strong>{line.text}</p><i className="transcript-progress" style={{ width: `${progress}%` }} /></div>; })}
+            <div ref={transcriptScrollRef as React.RefObject<HTMLDivElement>} className="transcript-stream" data-testid="call-transcript">
+              {callLines.map((line) => { const visible = (calling || ended) && callElapsedMs >= line.startMs; const active = calling && callElapsedMs >= line.startMs && callElapsedMs < line.endMs; const progress = active ? Math.min(100, ((callElapsedMs - line.startMs) / (line.endMs - line.startMs)) * 100) : visible && callElapsedMs >= line.endMs ? 100 : 0; return <div key={line.startMs} className={`${line.risk ? "is-risk" : ""} ${visible ? "slot-visible" : "slot-hidden"} ${active ? "is-active" : ""}`}><time>{formatTimer(line.startMs)}</time><p><strong>{line.speaker}</strong><span className="transcript-original">{line.text}</span><span className="transcript-translation">{line.translation}</span></p><i className="transcript-progress" style={{ width: `${progress}%` }} /></div>; })}
             </div>
-          </div>
+          </div> : <div aria-hidden="true" />}
           <div className={`handoff-stop ${rejected ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/warnings/risk-warning.svg`} alt="Risk boundary" /><span><strong>This transaction violates your mandate</strong><small>I rejected the listing and will continue searching for a safer offer.</small></span><X size={33} /></div>
         </section>
         <aside className="risk-panel">
-          <section className="soft-panel mandate-policy"><div className="numbered-heading"><b>3</b><strong>Your mandate & policy</strong></div><h3>Your mandate</h3><p>Find Fujifilm X100V, max €1,200, with safe payment and buyer protection. No direct bank transfer.</p><h3>Relyo policy</h3>{["Use protected channels only", "Require buyer protection", "Never share personal or payment data", "Reject unsafe transaction requests", "Continue search until safe match"].map((rule) => <div key={rule}><CheckCircle />{rule}</div>)}</section>
-          <section className="soft-panel risk-ledger"><div className="numbered-heading"><b>4</b><strong>Risk ledger</strong></div><p><CheckCircle /><span>Protected relay</span><em>Kept</em></p><p data-testid={warning ? "risk-medium" : undefined} className={warning ? "is-risk" : ""}><Warning /><span>Move outside eBay</span><em>{warning ? "High" : "Monitoring"}</em></p><p data-testid={directTransfer ? "risk-critical" : undefined} className={directTransfer ? "is-risk" : ""}><Warning /><span>Direct bank transfer</span><em>{directTransfer ? "Critical" : "Monitoring"}</em></p><p data-testid={personalData ? "risk-personal" : undefined} className={personalData ? "is-risk" : ""}><Warning /><span>WhatsApp personal data</span><em>{personalData ? "High" : "Monitoring"}</em></p><p><CheckCircle /><span>Money transferred</span><em>No</em></p><p><CheckCircle /><span>Personal data shared</span><em>No</em></p><div data-testid="foreign-final" className={`listing-rejected ${rejected ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/warnings/rejection-illustration.svg`} alt="Listing rejected" /><span><strong>Listing rejected</strong><small>Buyer protection refused<br />No money transferred<br />No personal data shared<br />Search continuing</small></span></div></section>
+          <section className="soft-panel mandate-policy"><div className="numbered-heading"><b>3</b><strong>Your mandate and policy</strong></div><h3>Your mandate</h3><p>Find Fujifilm X100V, max €1,200, with safe payment and buyer protection. No direct bank transfer.</p><h3>Relyo policy</h3>{["Use protected channels only", "Require buyer protection", "Estimate duty and import costs", "Never share personal or payment data", "Reject unsafe transaction requests", "Continue search until safe match"].map((rule) => <div key={rule}><CheckCircle />{rule}</div>)}</section>
+          <section ref={riskScrollRef as React.RefObject<HTMLElement>} className="soft-panel risk-ledger"><div className="numbered-heading"><b>4</b><strong>Risk ledger</strong></div><p><CheckCircle /><span>Protected relay</span><em>Kept</em></p><p data-testid={warning ? "risk-medium" : undefined} className={warning ? "is-risk" : ""}><Warning /><span>Move outside eBay</span><em>{warning ? "High" : "Monitoring"}</em></p><p data-testid={directTransfer ? "risk-critical" : undefined} className={directTransfer ? "is-risk" : ""}><Warning /><span>Direct bank transfer</span><em>{directTransfer ? "Critical" : "Monitoring"}</em></p><p data-testid={personalData ? "risk-personal" : undefined} className={personalData ? "is-risk" : ""}><Warning /><span>WhatsApp personal data</span><em>{personalData ? "High" : "Monitoring"}</em></p><p><CheckCircle /><span>Money transferred</span><em>No</em></p><p><CheckCircle /><span>Personal data shared</span><em>No</em></p><div data-testid="foreign-final" className={`listing-rejected ${rejected ? "slot-visible" : "slot-hidden"}`}><img src={`${A}/warnings/rejection-illustration.svg`} alt="Listing rejected" /><span><strong>Listing rejected</strong><small>Buyer protection refused<br />No money transferred<br />No personal data shared<br />Search continuing</small></span></div></section>
         </aside>
       </main>
       <footer className="workspace-footer"><span><LockKey />Prepared call · fictional seller · no real number dialled</span><span>Captured marketplace reference and agent conversation remain separate</span><span>Mandate boundary enforced</span></footer>
@@ -347,16 +378,17 @@ export function CinematicDemo({ internalQa = false }: { internalQa?: boolean }) 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const playback = useScenarioOrchestrator(audioRef);
   const token = `${playback.sessionKey}:${playback.stage?.id ?? "home"}`;
+  const launchDuration = 2_300;
 
   return <>
-    <audio ref={audioRef} data-testid="call-audio" preload="auto" src="/demo-assets/audio/german-call/combined.wav" />
+    <audio ref={audioRef} data-testid="call-audio" preload="auto" src="/demo-assets/audio/german-call/combined-1-5.wav" />
     {playback.recording && !playback.assetsReady ? <div className="recording-loader" data-testid="recording-loader"><MiniBrand /><div><i style={{ width: `${Math.round(playback.assetProgress * 100)}%` }} /></div><span>Preparing your shopping workspace…</span></div> : null}
     <MotionSurface token={token}>
       {!playback.scenarioId && <div data-testid="home-screen" data-ready={playback.hydrated ? "true" : "false"}><HomeScreen start={playback.start} /></div>}
-      {playback.scenarioId && playback.elapsedMs < 2_300 && <ScenarioLaunch scenario={playback.scenarioId} elapsedMs={playback.elapsedMs} />}
-      {playback.scenarioId === "retail" && playback.elapsedMs >= 2_300 && <RetailScreen elapsedMs={playback.elapsedMs} phase={playback.stage?.id ?? "enter"} />}
-      {playback.scenarioId === "private" && playback.elapsedMs >= 2_300 && <PrivateScreen elapsedMs={playback.elapsedMs} phase={playback.stage?.id ?? "enter"} />}
-      {playback.scenarioId === "foreign" && playback.elapsedMs >= 2_300 && <ForeignScreen elapsedMs={playback.elapsedMs} callElapsedMs={playback.callElapsedMs} phase={playback.stage?.id ?? "source"} status={playback.status} approve={playback.approveCall} />}
+      {playback.scenarioId && playback.elapsedMs < launchDuration && <ScenarioLaunch scenario={playback.scenarioId} elapsedMs={playback.elapsedMs} />}
+      {playback.scenarioId === "retail" && playback.elapsedMs >= launchDuration && <RetailScreen elapsedMs={playback.elapsedMs} phase={playback.stage?.id ?? "enter"} />}
+      {playback.scenarioId === "private" && playback.elapsedMs >= launchDuration && <PrivateScreen elapsedMs={playback.elapsedMs} phase={playback.stage?.id ?? "enter"} />}
+      {playback.scenarioId === "foreign" && playback.elapsedMs >= launchDuration && <ForeignScreen elapsedMs={playback.elapsedMs} callElapsedMs={playback.callElapsedMs} phase={playback.stage?.id ?? "source"} status={playback.status} approve={playback.approveCall} />}
     </MotionSurface>
     {internalQa ? <div className="qa-readout"><strong>Internal QA</strong><span>{playback.scenarioId ?? "home"}</span><span>{playback.stage?.id ?? "ready"}</span><span>{(playback.elapsedMs / 1_000).toFixed(1)} s</span><button type="button" onClick={playback.reset}>Reset</button></div> : null}
   </>;
