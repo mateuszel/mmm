@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "durationMs": 27000,
+  "sourceDocument": "docs/CALL_SCRIPT.md",
+  "disclosure": "Simulated seller verification call. Both voices are fictional and synthetic.",
+  "languages": {
+    "spoken": "de-DE",
+    "translation": "pl-PL"
+  },
+  "segments": [
+    {
+      "id": "agent-01",
+      "startMs": 0,
+      "endMs": 4000,
+      "speaker": "agent",
+      "german": "Guten Tag. Ich rufe über einen geschützten Relay-Dienst an. Ist die Fujifilm X100F noch verfügbar?",
+      "polish": "Dzień dobry. Dzwonię przez chroniony przekaźnik. Czy Fujifilm X100F jest nadal dostępny?",
+      "riskSignals": [],
+      "uiEvent": "Privacy preserved; availability check."
+    },
+    {
+      "id": "seller-01",
+      "startMs": 4000,
+      "endMs": 8000,
+      "speaker": "fictional-seller",
+      "german": "Ja, noch da. Über eBay ist es aber unnötig teuer.",
+      "polish": "Tak, nadal jest. Ale przez eBay jest niepotrzebnie drogo.",
+      "riskSignals": ["platform-avoidance"],
+      "uiEvent": "Platform avoidance begins."
+    },
+    {
+      "id": "agent-02",
+      "startMs": 8000,
+      "endMs": 13000,
+      "speaker": "agent",
+      "german": "Können Kauf und Zahlung bei eBay mit Käuferschutz bleiben?",
+      "polish": "Czy zakup i płatność mogą zostać na eBay z ochroną kupującego?",
+      "riskSignals": [],
+      "uiEvent": "Explicit protected-payment verification."
+    },
+    {
+      "id": "seller-02",
+      "startMs": 13000,
+      "endMs": 18000,
+      "speaker": "fictional-seller",
+      "german": "Nein. Überweisen Sie 760 Euro direkt auf mein Konto. Dann sparen wir beide die Gebühren.",
+      "polish": "Nie. Proszę przelać 760 euro bezpośrednio na moje konto. Oboje oszczędzimy prowizję.",
+      "riskSignals": ["direct-bank-transfer", "fee-bypass", "lower-off-platform-price"],
+      "uiEvent": "Direct transfer and fee bypass detected."
+    },
+    {
+      "id": "agent-03",
+      "startMs": 18000,
+      "endMs": 21000,
+      "speaker": "agent",
+      "german": "Versenden Sie erst nach dem direkten Zahlungseingang?",
+      "polish": "Czy wyśle pan aparat dopiero po otrzymaniu bezpośredniego przelewu?",
+      "riskSignals": [],
+      "uiEvent": "Unsecured payment-before-shipment sequence is checked."
+    },
+    {
+      "id": "seller-03",
+      "startMs": 21000,
+      "endMs": 24000,
+      "speaker": "fictional-seller",
+      "german": "Ja. Zahlen Sie heute, sonst nehme ich den nächsten Käufer.",
+      "polish": "Tak. Proszę zapłacić dziś, inaczej wybiorę następnego kupującego.",
+      "riskSignals": ["urgency", "social-pressure"],
+      "uiEvent": "Urgency and social pressure detected."
+    },
+    {
+      "id": "agent-04",
+      "startMs": 24000,
+      "endMs": 27000,
+      "speaker": "agent",
+      "german": "Ohne Käuferschutz kann ich nicht fortfahren. Vielen Dank, ich beende das Gespräch.",
+      "polish": "Bez ochrony kupującego nie mogę kontynuować. Dziękuję, kończę rozmowę.",
+      "riskSignals": [],
+      "uiEvent": "Mandate enforced; call ends."
+    }
+  ],
+  "finalDecision": {
+    "status": "rejected",
+    "reason": "Off-platform direct bank transfer requested and buyer protection refused.",
+    "rulesTriggered": [
+      "off-platform-payment",
+      "direct-bank-transfer",
+      "buyer-protection-refused",
+      "transaction-channel-changed",
+      "urgency"
+    ],
+    "result": "No money transferred and no personal phone number or payment data disclosed."
+  }
+}

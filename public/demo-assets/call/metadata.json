@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "scenario": 3,
+  "title": "Simulated seller verification call",
+  "createdAt": "2026-07-11",
+  "sourceDocument": "docs/CALL_SCRIPT.md",
+  "durationSeconds": 27,
+  "generation": {
+    "method": "Local macOS text-to-speech and deterministic PCM assembly",
+    "apiKeyUsed": false,
+    "networkCallMade": false,
+    "agentVoice": "macOS Anna (de-DE), synthetic",
+    "sellerVoice": "macOS Reed German (de-DE), synthetic",
+    "voiceDisclosure": "Both voices are fictional synthetic performances and do not imitate or represent a real person.",
+    "sampleRateHz": 48000,
+    "channels": 1
+  },
+  "audioFiles": [
+    {
+      "path": "../audio/scenario-3-call-combined.m4a",
+      "role": "Browser playback master",
+      "codec": "AAC-LC in M4A",
+      "durationSeconds": 27
+    },
+    {
+      "path": "../audio/scenario-3-call-combined.wav",
+      "role": "Lossless editing master",
+      "codec": "48 kHz 16-bit PCM mono",
+      "durationSeconds": 27
+    },
+    {
+      "path": "../audio/scenario-3-call-agent-stem.m4a",
+      "role": "Synchronized agent-only browser stem",
+      "codec": "AAC-LC in M4A",
+      "durationSeconds": 27
+    },
+    {
+      "path": "../audio/scenario-3-call-seller-stem.m4a",
+      "role": "Synchronized fictional-seller-only browser stem",
+      "codec": "AAC-LC in M4A",
+      "durationSeconds": 27
+    },
+    {
+      "path": "../audio/scenario-3-call-rehearsal-silent.m4a",
+      "role": "Silent 27-second rehearsal timeline",
+      "codec": "AAC-LC in M4A",
+      "durationSeconds": 27
+    },
+    {
+      "path": "../audio/scenario-3-call-live-presenter-cues.m4a",
+      "role": "Agent lines plus seller-entry cue tones for theatre mode",
+      "codec": "AAC-LC in M4A",
+      "durationSeconds": 27
+    }
+  ],
+  "timingFiles": [
+    "transcript.json",
+    "subtitles-pl.vtt",
+    "subtitles-pl.srt",
+    "live-presenter-cues.json",
+    "waveform.json"
+  ],
+  "safety": {
+    "realSellerContacted": false,
+    "realTelephoneNumberIncluded": false,
+    "realSellerIdentityIncluded": false,
+    "platformBehaviorClaimed": false
+  }
+}

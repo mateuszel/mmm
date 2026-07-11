@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Simulated payment confirmation</title>
+  <desc id="desc">An original neutral illustration of a protected payment receipt with a confirmation check.</desc>
+  <rect width="640" height="400" rx="44" fill="#F7F5F0"/>
+  <circle cx="520" cy="86" r="118" fill="#E1EEE7"/>
+  <circle cx="116" cy="352" r="104" fill="#ECE8DE"/>
+  <path d="M178 71h284c18.8 0 34 15.2 34 34v231l-22-13-22 13-22-13-22 13-22-13-22 13-22-13-22 13-22-13-22 13-22-13-22 13-22-13V105c0-18.8 15.2-34 34-34Z" fill="#FFF" stroke="#161616" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M225 139h142M225 182h190M225 225h112" stroke="#C8C4BA" stroke-width="12" stroke-linecap="round"/>
+  <path d="M225 276h96" stroke="#161616" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="423" cy="275" r="47" fill="#2F7D5A"/>
+  <path d="m401 275 15 15 29-33" fill="none" stroke="#FFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M139 112h58M472 345h40" stroke="#6C6A64" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-11",
+  "tool": "repo-native SVG",
+  "assets": [
+    {
+      "asset": "icons/privacy-relay.svg",
+      "dimensions": "96x96 viewBox",
+      "purpose": "Privacy-protected relay indicator in the simulated seller call approval and call header.",
+      "prompt": "Original shield-and-routing icon in a warm neutral and trust-green palette; no text, logo, person, or marketplace branding.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "icons/verification-check.svg",
+      "dimensions": "96x96 viewBox",
+      "purpose": "Evidence verification state for condition, mandate, and protected-payment checks.",
+      "prompt": "Original magnifying-glass and check icon in a restrained consumer-fintech style; no text or brand marks.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "warnings/risk-warning.svg",
+      "dimensions": "96x96 viewBox",
+      "purpose": "Compact risk signal for a direct-transfer or buyer-protection violation.",
+      "prompt": "Original high-contrast transaction warning icon using a muted risk red; no marketplace branding.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "payment/payment-confirmation.svg",
+      "dimensions": "640x400 viewBox",
+      "purpose": "Neutral illustration behind the explicitly simulated payment confirmation state.",
+      "prompt": "Original protected receipt with a confirmation check, warm white background, trust green accent, no payment-network logo, amount, code, or identifying information.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "warnings/rejection-illustration.svg",
+      "dimensions": "640x400 viewBox",
+      "purpose": "Trust-oriented end state after the agent rejects an unsafe off-platform transaction.",
+      "prompt": "Original mandate shield blocking an unsafe transfer card; premium editorial composition, no bank, platform, or merchant branding.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "call/waveform-27s.svg",
+      "dimensions": "1080x180 viewBox",
+      "purpose": "Precomputed waveform for the 27-second simulated German seller verification call.",
+      "prompt": "Deterministic seven-section waveform whose segment widths follow the 4s, 4s, 5s, 5s, 3s, 3s, and 3s dialogue timings; alternating agent and seller colors; no live audio analysis.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "seller/avatar-private.svg",
+      "dimensions": "256x256 viewBox",
+      "purpose": "Fictional, non-identifying avatar for the scripted private-seller conversation.",
+      "prompt": "Original geometric silhouette with no facial detail; fictional person, no resemblance target, logo, marketplace color lockup, or identifying feature.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    },
+    {
+      "asset": "seller/avatar-foreign.svg",
+      "dimensions": "256x256 viewBox",
+      "purpose": "Fictional, non-identifying avatar for the simulated foreign seller call.",
+      "prompt": "Original abstract seller silhouette with no facial detail; not based on a real person; no flag, logo, marketplace branding, or identifying detail.",
+      "tool": "repo-native SVG",
+      "date": "2026-07-11"
+    }
+  ]
+}

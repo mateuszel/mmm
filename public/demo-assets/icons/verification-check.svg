@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence verified</title>
+  <desc id="desc">An original verification mark made from a magnifying glass and check.</desc>
+  <rect width="96" height="96" rx="24" fill="#F7F5F0"/>
+  <circle cx="43" cy="42" r="22" fill="#FFFFFF" stroke="#161616" stroke-width="5"/>
+  <path d="m58.5 58.5 16 16" stroke="#161616" stroke-width="7" stroke-linecap="round"/>
+  <path d="m33 42 7 7 14-16" fill="none" stroke="#2F7D5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

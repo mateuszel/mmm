@@ -1,0 +1,34 @@
+1
+00:00:00,000 --> 00:00:04,000
+Agent: Dzień dobry. Dzwonię przez chroniony przekaźnik.
+Czy Fujifilm X100F jest nadal dostępny?
+
+2
+00:00:04,000 --> 00:00:08,000
+Sprzedawca (symulacja): Tak, nadal jest.
+Ale przez eBay jest niepotrzebnie drogo.
+
+3
+00:00:08,000 --> 00:00:13,000
+Agent: Czy zakup i płatność mogą zostać na eBay
+z ochroną kupującego?
+
+4
+00:00:13,000 --> 00:00:18,000
+Sprzedawca (symulacja): Nie. Proszę przelać 760 euro
+bezpośrednio na moje konto. Oboje oszczędzimy prowizję.
+
+5
+00:00:18,000 --> 00:00:21,000
+Agent: Czy wyśle pan aparat dopiero po otrzymaniu
+bezpośredniego przelewu?
+
+6
+00:00:21,000 --> 00:00:24,000
+Sprzedawca (symulacja): Tak. Proszę zapłacić dziś,
+inaczej wybiorę następnego kupującego.
+
+7
+00:00:24,000 --> 00:00:27,000
+Agent: Bez ochrony kupującego nie mogę kontynuować.
+Dziękuję, kończę rozmowę.

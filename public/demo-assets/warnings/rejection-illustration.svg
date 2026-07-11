@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Unsafe transaction rejected</title>
+  <desc id="desc">An original illustration of a protected mandate blocking an unsafe transfer.</desc>
+  <rect width="640" height="400" rx="44" fill="#F7F5F0"/>
+  <circle cx="505" cy="84" r="132" fill="#F3DEDA"/>
+  <circle cx="116" cy="336" r="96" fill="#ECE8DE"/>
+  <path d="M320 55 460 105v95c0 95-51 150-140 184-89-34-140-89-140-184v-95l140-50Z" fill="#FFF" stroke="#161616" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="235" y="155" width="170" height="98" rx="24" fill="#FBF1EF" stroke="#B5413E" stroke-width="6"/>
+  <path d="M265 185h63M265 219h34" stroke="#6C6A64" stroke-width="11" stroke-linecap="round"/>
+  <path d="m355 180 39 39M394 180l-39 39" stroke="#B5413E" stroke-width="12" stroke-linecap="round"/>
+  <path d="M211 99 429 317" stroke="#B5413E" stroke-width="18" stroke-linecap="round"/>
+  <path d="M221 317 429 109" stroke="#B5413E" stroke-width="18" stroke-linecap="round" opacity=".16"/>
+</svg>

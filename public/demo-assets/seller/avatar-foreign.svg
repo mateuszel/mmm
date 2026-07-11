@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Fictional foreign seller avatar</title>
+  <desc id="desc">An original abstract silhouette avatar that is not based on a real person.</desc>
+  <rect width="256" height="256" rx="128" fill="#DDE4E2"/>
+  <circle cx="53" cy="44" r="72" fill="#CAD6D2"/>
+  <path d="M8 256c8-61 48-96 120-96s112 35 120 96H8Z" fill="#303A38"/>
+  <path d="M75 95c0-38 23-68 54-68s54 30 54 68c0 41-22 70-54 70S75 136 75 95Z" fill="#C9906B"/>
+  <path d="M73 94c0-45 21-72 57-72 30 0 52 19 59 50-15-8-30-13-45-13-26 0-45 13-71 35Z" fill="#5C4A3E"/>
+  <path d="M90 115c10 20 23 29 39 29s29-9 39-29c-4 30-18 50-39 50s-35-20-39-50Z" fill="#4B3A31" opacity=".65"/>
+</svg>

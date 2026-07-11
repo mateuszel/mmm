@@ -23,6 +23,7 @@ Negotiation, image/condition analysis, seller research, proactive messaging, AP2
 - [Cinematic demo vision](docs/CINEMATIC_DEMO_VISION.md) - provisional 126-second product story
 - [Demo storyboard](docs/DEMO_STORYBOARD.md), [exact copy](docs/DEMO_COPY.md), and [scenario timelines](docs/SCENARIO_TIMELINES.md)
 - [Interaction specification](docs/INTERACTION_SPEC.md), [asset manifest](docs/ASSET_MANIFEST.md), and [call script](docs/CALL_SCRIPT.md)
+- [Real source map](docs/REAL_SOURCE_MAP.md) and [asset provenance](docs/ASSET_PROVENANCE.md) - frozen public sources, generated assets, privacy review, audio, and known gaps
 - [Pitch flow](docs/PITCH_FLOW.md), [market context](docs/MARKET_CONTEXT.md), and [claims gate](docs/CLAIMS_AND_SIMULATIONS.md)
 - [Architecture](docs/ARCHITECTURE.md) - placeholder; no architecture is approved
 - [Team workflow](docs/TEAM_WORKFLOW.md) - future collaboration model

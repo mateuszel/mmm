@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "durationMs": 27000,
+  "audio": "../audio/scenario-3-call-live-presenter-cues.m4a",
+  "instructions": "Agent lines remain audible. Each cue tone begins 280 ms before a seller slot. Perform only the fictional seller lines; do not identify a real seller.",
+  "sellerCues": [
+    {
+      "cueToneMs": 3720,
+      "startMs": 4000,
+      "endMs": 8000,
+      "german": "Ja, noch da. Über eBay ist es aber unnötig teuer."
+    },
+    {
+      "cueToneMs": 12720,
+      "startMs": 13000,
+      "endMs": 18000,
+      "german": "Nein. Überweisen Sie 760 Euro direkt auf mein Konto. Dann sparen wir beide die Gebühren."
+    },
+    {
+      "cueToneMs": 20720,
+      "startMs": 21000,
+      "endMs": 24000,
+      "german": "Ja. Zahlen Sie heute, sonst nehme ich den nächsten Käufer."
+    }
+  ]
+}

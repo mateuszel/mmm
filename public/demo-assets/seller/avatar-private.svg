@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Fictional private seller avatar</title>
+  <desc id="desc">An original geometric avatar with no identifying facial details.</desc>
+  <rect width="256" height="256" rx="128" fill="#E9E1D4"/>
+  <path d="M0 184c42-25 85-36 128-36s86 11 128 36v72H0v-72Z" fill="#53645A"/>
+  <circle cx="128" cy="99" r="57" fill="#D3A684"/>
+  <path d="M70 100c0-48 28-75 67-75 29 0 54 16 65 40-17-8-31-7-45 3-22 16-47 19-80 10-4 7-6 14-7 22Z" fill="#282724"/>
+  <path d="M91 151c11-10 23-15 37-15s26 5 37 15c-10 9-22 14-37 14s-27-5-37-14Z" fill="#BF8D6B" opacity=".55"/>
+</svg>

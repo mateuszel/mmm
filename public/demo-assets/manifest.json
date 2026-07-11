@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-11T11:34:00Z",
+  "playback_policy": {
+    "offline_only": true,
+    "external_runtime_urls": [],
+    "source_capture_viewport": "1920x1080 CSS override; captured images retain browser device scaling",
+    "checksum_index": "checksums.sha256",
+    "real_seller_contacted": false,
+    "real_payment_performed": false
+  },
+  "source_captures": [
+    {
+      "id": "S1-ADIDAS",
+      "scenario": 1,
+      "source_name": "adidas Poland",
+      "original_url": "https://www.adidas.pl/buty-samba-og/IG1024.html",
+      "capture_timestamp": "2026-07-11T11:33:45Z",
+      "original_filename": "sources/adidas/adidas-ig1024-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/adidas/adidas-ig1024-viewport.webp",
+        "sources/adidas/adidas-ig1024-product.webp",
+        "sources/adidas/adidas-ig1024-product-info.webp",
+        "sources/adidas/adidas-ig1024-size-availability.webp",
+        "sources/adidas/adidas-ig1024-viewport-thumb.webp",
+        "sources/adidas/adidas-ig1024-viewport-browser.webp"
+      ],
+      "scenario_fact_state": "PLN 396.75 visible; EU 43 1/3 appears unavailable in the capture",
+      "intended_placement": "official product identity, product-match proof, rejected retail card",
+      "personal_data_redactions": [],
+      "attribution": "adidas Poland public product page capture",
+      "alt_text": "adidas Samba OG IG1024 public product page showing white and green shoes, price and size grid"
+    },
+    {
+      "id": "S1-EOBUWIE",
+      "scenario": 1,
+      "source_name": "eobuwie",
+      "original_url": "https://eobuwie.com.pl/p/sneakersy-adidas-samba-og-ig1024-bialy-0000305636324",
+      "capture_timestamp": "2026-07-11T11:33:48Z",
+      "original_filename": "sources/retail/eobuwie-ig1024-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/retail/eobuwie-ig1024-viewport.webp",
+        "sources/retail/eobuwie-ig1024-product.webp",
+        "sources/retail/eobuwie-ig1024-product-info.webp",
+        "sources/retail/eobuwie-ig1024-viewport-thumb.webp",
+        "sources/retail/eobuwie-ig1024-viewport-browser.webp"
+      ],
+      "scenario_fact_state": "PLN 339.99 visible; scripted PLN 0.99 delivery remains separate deterministic demo data unless the capture-time terms are shown",
+      "intended_placement": "winning retailer reference card and receipt attribution",
+      "personal_data_redactions": [],
+      "attribution": "eobuwie public product page capture",
+      "alt_text": "eobuwie adidas Samba OG IG1024 product page showing the PLN 339.99 price"
+    },
+    {
+      "id": "S1-PRM",
+      "scenario": 1,
+      "source_name": "PRM",
+      "original_url": "https://prm.com/pl/p/adidas-originals-samba-og-sneakersy-kolor-bialy-ig1024-34026",
+      "capture_timestamp": "2026-07-11T11:33:49Z",
+      "original_filename": "sources/retail/prm-ig1024-unavailable-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/retail/prm-ig1024-unavailable-viewport.webp",
+        "sources/retail/prm-ig1024-unavailable-viewport-thumb.webp",
+        "sources/retail/prm-ig1024-unavailable-viewport-browser.webp"
+      ],
+      "scenario_fact_state": "Source currently states that the product is unavailable; historical price and promotion values must be shown as deterministic demo data, not edited into this capture",
+      "intended_placement": "source-state proof and unavailable-offer explanation",
+      "personal_data_redactions": [],
+      "attribution": "PRM public product page capture",
+      "alt_text": "PRM public page stating that the selected adidas Samba OG product is currently unavailable"
+    },
+    {
+      "id": "S1-FARFETCH",
+      "scenario": 1,
+      "source_name": "Farfetch Poland",
+      "original_url": "https://www.farfetch.com/pl/shopping/men/adidas-samba-og-sneakers-item-20552905.aspx",
+      "capture_timestamp": "2026-07-11T11:33:49Z",
+      "original_filename": "sources/retail/farfetch-ig1024-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/retail/farfetch-ig1024-viewport.webp",
+        "sources/retail/farfetch-ig1024-product-info.webp",
+        "sources/retail/farfetch-ig1024-viewport-thumb.webp",
+        "sources/retail/farfetch-ig1024-viewport-browser.webp"
+      ],
+      "scenario_fact_state": "PLN 515 visible at capture time; the prior PLN 379 script value must not be painted into the capture",
+      "intended_placement": "higher-cost retailer comparison card",
+      "personal_data_redactions": [],
+      "attribution": "Farfetch Poland public product page capture",
+      "alt_text": "Farfetch adidas Samba OG product page showing a PLN 515 price and estimated delivery"
+    },
+    {
+      "id": "S2-OLX-1083464946",
+      "scenario": 2,
+      "source_name": "OLX Poland",
+      "original_url": "https://www.olx.pl/d/oferta/nintendo-switch-oled-neon-mega-zestaw-pro-pad-karta-128gb-etui-oivo-CID99-ID1bk6J4.html",
+      "capture_timestamp": "2026-07-11T11:33:47Z",
+      "original_filename": "sources/olx/olx-1083464946-unavailable-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/olx/olx-1083464946-unavailable-viewport.webp"
+      ],
+      "scenario_fact_state": "The selected listing is no longer available; no live seller identity or conversation was captured",
+      "intended_placement": "source-lock status and fallback evidence",
+      "personal_data_redactions": ["No seller panel captured", "No phone number or avatar captured"],
+      "attribution": "OLX Poland public unavailable-listing page capture",
+      "alt_text": "OLX page stating that the selected Nintendo Switch OLED listing is no longer available",
+      "status": "blocked_selected_listing"
+    },
+    {
+      "id": "S2-OLX-SEARCH",
+      "scenario": 2,
+      "source_name": "OLX Poland",
+      "original_url": "https://www.olx.pl/elektronika/gry-konsole/q-nintendo-switch-oled/",
+      "capture_timestamp": "2026-07-11T11:33:48Z",
+      "original_filename": "sources/olx/olx-switch-search-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/olx/olx-switch-search-top.webp",
+        "sources/olx/olx-switch-search-results.webp",
+        "sources/olx/olx-switch-search-results-thumb.webp",
+        "sources/olx/olx-switch-search-results-browser.webp"
+      ],
+      "scenario_fact_state": "Current real search context only; current result sellers are not used in the scripted conversation",
+      "intended_placement": "real OLX search screen before the fictionalized agent branch",
+      "personal_data_redactions": ["No seller names, avatars, phone numbers or contact details captured", "Only non-identifying city labels remain"],
+      "attribution": "OLX Poland public search-results capture",
+      "alt_text": "OLX search results for Nintendo Switch OLED listings with titles, product images and protected-price badges"
+    },
+    {
+      "id": "S3-EBAY-CATEGORY",
+      "scenario": 3,
+      "source_name": "eBay Germany",
+      "original_url": "https://www.ebay.de/b/Fujifilm-X100f/31388/bn_7005354962",
+      "capture_timestamp": "2026-07-11T11:33:46Z",
+      "original_filename": "sources/foreign/ebay-x100f-search-fullpage.webp",
+      "cropped_derivative_filenames": [
+        "sources/foreign/ebay-x100f-search-viewport.webp",
+        "sources/foreign/ebay-x100f-search-result-card.webp",
+        "sources/foreign/ebay-x100f-search-viewport-thumb.webp",
+        "sources/foreign/ebay-x100f-search-viewport-browser.webp"
+      ],
+      "scenario_fact_state": "Current first product result shows EUR 1100 plus EUR 20 shipping; the earlier EUR 805 + EUR 5.50 values are separate deterministic demo values",
+      "intended_placement": "foreign marketplace search and product-category context",
+      "personal_data_redactions": ["No seller profile, contact detail, avatar or phone number captured"],
+      "attribution": "eBay Germany public category capture",
+      "alt_text": "eBay Germany Fujifilm X100F results showing a used private-listing product card in euros"
+    }
+  ],
+  "source_product_images": [
+    {
+      "filename": "product/adidas-samba-og-ig1024-source.webp",
+      "source_name": "Farfetch product page asset",
+      "original_url": "https://www.farfetch.com/pl/shopping/men/adidas-samba-og-sneakers-item-20552905.aspx",
+      "scenario": 1,
+      "intended_placement": "comparison product thumbnail",
+      "alt_text": "adidas Samba OG White and Green product image"
+    },
+    {
+      "filename": "product/fujifilm-x100f-ebay-source.webp",
+      "source_name": "eBay category result image",
+      "original_url": "https://www.ebay.de/b/Fujifilm-X100f/31388/bn_7005354962",
+      "scenario": 3,
+      "intended_placement": "foreign product card only; never seller identity or conduct",
+      "alt_text": "Fujifilm X100F camera product image from the captured eBay result"
+    }
+  ],
+  "generated_assets": [
+    {
+      "filename": "product/switch-touchscreen-simulated.webp",
+      "scenario": 2,
+      "generation_tool": "built-in imagegen",
+      "generation_date": "2026-07-11",
+      "dimensions": "1448x1086",
+      "generation_prompt": "Realistic close-up inspection photo of a generic handheld OLED game console with cyan and red detachable controllers, touchscreen diagnostic dots, and a tiny cosmetic crack confined to the black bezel; neutral tabletop; no logos, seller data or marketplace UI.",
+      "intended_placement": "Simulated touchscreen and cosmetic-condition evidence",
+      "alt_text": "Simulated evidence image of a handheld console touchscreen test with a small bezel crack"
+    },
+    {
+      "filename": "product/switch-bundle-simulated.png",
+      "scenario": 2,
+      "generation_tool": "built-in imagegen plus local chroma-key removal",
+      "generation_date": "2026-07-11",
+      "dimensions": "1448x1086 RGBA",
+      "generation_prompt": "Top-down catalog arrangement of a generic handheld OLED console bundle with cyan/red controllers, dock, cables, case, memory card and controller on a flat #00ff00 chroma-key background; no logos, text, packaging, people or shadows.",
+      "intended_placement": "Transparent simulated bundle evidence",
+      "alt_text": "Transparent simulated evidence cutout of a handheld console and complete accessory bundle"
+    },
+    {
+      "filename": "seller/avatar-foreign-imagegen.png",
+      "scenario": 3,
+      "generation_tool": "built-in imagegen plus local chroma-key removal",
+      "generation_date": "2026-07-11",
+      "dimensions": "1254x1254 RGBA",
+      "generation_prompt": "Anonymous faceless matte 3D adult bust in a dark jacket on a flat #00ff00 chroma-key background; no real-person resemblance, text, logo, marketplace branding or shadows.",
+      "intended_placement": "Fictional foreign seller identity in the simulated call",
+      "alt_text": "Faceless fictional seller avatar with no identifying features"
+    }
+  ],
+  "supporting_assets": {
+    "metadata": "supporting-metadata.json",
+    "files": [
+      "icons/privacy-relay.svg",
+      "icons/verification-check.svg",
+      "payment/payment-confirmation.svg",
+      "warnings/risk-warning.svg",
+      "warnings/rejection-illustration.svg",
+      "call/waveform-27s.svg",
+      "seller/avatar-private.svg",
+      "seller/avatar-foreign.svg"
+    ]
+  },
+  "call_package": {
+    "metadata": "call/metadata.json",
+    "duration_seconds": 27,
+    "voices": "Two fictional local macOS German synthetic voices; no real-person imitation",
+    "master": "audio/scenario-3-call-combined.m4a",
+    "agent_stem": "audio/scenario-3-call-agent-stem.m4a",
+    "seller_stem": "audio/scenario-3-call-seller-stem.m4a",
+    "silent_rehearsal": "audio/scenario-3-call-rehearsal-silent.m4a",
+    "live_presenter_cues": "audio/scenario-3-call-live-presenter-cues.m4a",
+    "transcript": "call/transcript.json",
+    "subtitles": ["call/subtitles-pl.vtt", "call/subtitles-pl.srt"],
+    "waveform": "call/waveform.json"
+  },
+  "known_source_gaps": [
+    "The selected OLX listing 1083464946 is unavailable and no approved team screenshot was supplied.",
+    "The selected eBay EUR 805 + EUR 5.50 listing could not be recovered; the live category capture is retained and scripted values must remain separately labelled deterministic demo data.",
+    "PRM currently reports the product unavailable and Farfetch currently shows PLN 515, not the earlier scripted values.",
+    "No real seller is connected to any fictional negotiation, phone call or off-platform-payment behavior."
+  ]
+}
