@@ -20,13 +20,17 @@ Negotiation, image/condition analysis, seller research, proactive messaging, AP2
 - [Product brief](docs/PRODUCT_BRIEF.md) - working problem, journey, risks, and non-goals
 - [Open decisions](docs/OPEN_DECISIONS.md) - decisions required before coding
 - [Presentation context](docs/PRESENTATION_CONTEXT.md) - narrative and claims to validate
+- [Cinematic demo vision](docs/CINEMATIC_DEMO_VISION.md) - provisional 126-second product story
+- [Demo storyboard](docs/DEMO_STORYBOARD.md), [exact copy](docs/DEMO_COPY.md), and [scenario timelines](docs/SCENARIO_TIMELINES.md)
+- [Interaction specification](docs/INTERACTION_SPEC.md), [asset manifest](docs/ASSET_MANIFEST.md), and [call script](docs/CALL_SCRIPT.md)
+- [Pitch flow](docs/PITCH_FLOW.md), [market context](docs/MARKET_CONTEXT.md), and [claims gate](docs/CLAIMS_AND_SIMULATIONS.md)
 - [Architecture](docs/ARCHITECTURE.md) - placeholder; no architecture is approved
 - [Team workflow](docs/TEAM_WORKFLOW.md) - future collaboration model
 - [Decision log](docs/DECISIONS.md) and [research log](docs/RESEARCH.md)
 
 ## Repository state
 
-The active tree is intentionally documentation-first and contains no application scaffold or dependencies. Earlier experiments remain recoverable from Git history and an offline backup. Until discovery closes, do not add application code, dependencies, infrastructure, messaging, or payment integrations.
+The active tree is intentionally documentation-first and contains no application scaffold or dependencies. A provisional cinematic demo now uses three different real public product/listing references, while all seller contact, calls, negotiation, payments and integrations remain clearly simulated. Earlier experiments remain recoverable from Git history and an offline backup. Until discovery closes, do not add application code, dependencies, infrastructure, messaging, or payment integrations.
 
 ## Working together
 

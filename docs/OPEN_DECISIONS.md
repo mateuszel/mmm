@@ -5,18 +5,22 @@
 ## Product and demo
 
 - [ ] Approve the final value proposition and primary user.
-- [ ] Select the final demo flow and fallback flow.
+- [x] Select the provisional cinematic demo flow: three products, three channels, 126-second master cut.
+- [ ] Approve the final demo flow after asset capture and a timed rehearsal; retain caption-only fallback.
 - [ ] Choose the main differentiator judges should remember.
 - [ ] Decide whether the product is primarily deal discovery or delegated payment.
 - [ ] Decide whether the core outcome is notification, prepared checkout, or simulated autonomous strike.
-- [ ] Set the number and type of mocked merchants, countries, currencies, and event sequences.
+- [x] Set the demo sequence: adidas retail comparison, Nintendo Switch OLED on OLX, Fujifilm X100F on eBay.de.
 - [ ] Define coupon discovery/validation scope.
-- [ ] Include or exclude marketplace and private-seller questions/negotiation.
-- [ ] Choose the hero product/category for the demo and define why negotiation matters there.
+- [x] Include marketplace questions, one bounded negotiation and an off-platform stop case.
+- [x] Use three different products rather than one repeated hero product.
 - [ ] Define negotiation boundaries: allowed questions, price range, concessions, stop conditions, and mandatory escalation.
 - [ ] Define availability, photo/condition, authenticity, seller-review, and reputation evidence used in the demo.
 - [ ] Decide whether the brand/pitch page and interactive demo are one site or separate routes/surfaces.
 - [ ] Approve claims, product language, and explicit non-claims for the pitch.
+- [ ] Confirm legal/brand treatment for real store, OLX and eBay screenshots and logos.
+- [ ] Freeze and revalidate exact public pages, prices, stock, delivery and promotion terms immediately before recording.
+- [ ] Confirm that seller redaction and fictional alternate-branch wording are visible enough on every marketplace scene.
 
 ## Trust and payments
 
@@ -47,6 +51,13 @@
 - [ ] Select Sites or Vercel as the final host after the stack is approved; keep a local fallback.
 - [ ] Decide test strategy and CI gates for implementation.
 - [ ] Record the explicit project-status transition from `Discovery` to `Implementation`.
+- [ ] Choose final UI language: English, Polish, or bilingual; German call retains Polish captions.
+- [ ] Approve `A` as the autoplay shortcut and final presenter control mapping.
+- [ ] Select synthetic voices and approve German pronunciation.
+- [ ] Decide whether the theatre-mode live seller voice is worth rehearsal risk.
+- [ ] Approve visual identity, product name, type and color system before creating `DESIGN.md`.
+- [ ] Decide whether Scenario 2 ends at approval (current recommendation) or simulated purchase.
+- [ ] Select Sites or Vercel and confirm the local offline playback path.
 
 ## Team coordination
 

@@ -1,6 +1,6 @@
 # Presentation context
 
-**Status: Provisional / requires validation.** No separate team-presentation file was available in the supplied workspace. This summary reflects the current product hypothesis provided in the team discussion and should be reconciled with the actual deck when added.
+**Status: Provisional / requires validation.** This summary reflects `ai_shopping_agent_dwie_sciezki.pdf` and the current team discussion. No additional Team MMM slide deck was present in the supplied workspace.
 
 ## Main narrative
 
@@ -33,6 +33,8 @@ People cannot continuously watch dynamic prices across stores, currencies, deliv
 
 Exploratory direction: one clean, minimalist site with a fast brand narrative and a focused fictional conversation/demo flow. It should show listing evidence, photos, seller signals, negotiation, mandate status, approval, and receipt without resembling a cluttered marketplace dashboard. No external messenger brand or live integration should be implied.
 
+The source presentation develops two complementary routes: deterministic retail price/strike logic and a more narrative private-seller investigation/negotiation flow. The current cinematic plan combines them but uses three different products: adidas retail, Nintendo Switch OLED on OLX, and Fujifilm X100F on eBay. See [Pitch flow](PITCH_FLOW.md).
+
 The pitch is three minutes plus two minutes of Q&A. The presentation should optimize for one memorable story, visible judgment, and a reliable “wow” moment rather than broad feature coverage.
 
 ## Claims requiring validation
@@ -49,6 +51,8 @@ The pitch is three minutes plus two minutes of Q&A. The presentation should opti
 - True delivered-price focus
 - Trust through caps, approval, receipts, and explanations
 - Deterministic, measurable demo preference
+- Three-stage trust story: buy, ask, stop
+- Real public product/listing references with simulated interactions
 
 ## Still exploratory
 
