@@ -34,7 +34,9 @@ const scenarioCopy = scenarios;
 function MotionSurface({ token, children }: { token: string; children: React.ReactNode }) {
   const scope = useRef<HTMLDivElement>(null);
   useGSAP(() => {
-    gsap.fromTo("[data-enter]", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.38, stagger: 0.08, ease: "power2.out", clearProps: "transform,opacity,visibility" });
+    const targets = gsap.utils.toArray<HTMLElement>("[data-enter]");
+    if (targets.length === 0) return;
+    gsap.fromTo(targets, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.38, stagger: 0.08, ease: "power2.out", clearProps: "transform,opacity,visibility" });
   }, { scope, dependencies: [token], revertOnUpdate: true });
   return <div ref={scope} className="cinema-motion-scope">{children}</div>;
 }
