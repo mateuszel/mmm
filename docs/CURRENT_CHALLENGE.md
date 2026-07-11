@@ -1,3 +1,3 @@
 # Current challenge
 
-Status: not revealed. Do not treat partner-context hypotheses as requirements. Replace this page from the official briefing using `CHALLENGE_BRIEF_TEMPLATE.md`.
+**Status: Superseded orientation.** The Solidgate case has been revealed. Use [Official case](OFFICIAL_CASE.md) for confirmed requirements, [Current concept](CURRENT_CONCEPT.md) for the team hypothesis, and [Open decisions](OPEN_DECISIONS.md) for unresolved scope.

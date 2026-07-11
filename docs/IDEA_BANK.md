@@ -1,5 +1,7 @@
 # Idea bank
 
+> **Status: Historical pre-brief options.** The Solidgate case is now known; use [Current concept](CURRENT_CONCEPT.md) and [Open decisions](OPEN_DECISIONS.md) for active discovery.
+
 Do not select a final concept before the briefing.
 
 | Criterion | Weight |
