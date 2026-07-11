@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { CinematicDemo } from "@/components/demo/CinematicDemo";
 
 export default function DemoPage() {
-  redirect("/");
+  return <CinematicDemo />;
 }

@@ -1,48 +1,52 @@
 # Scenario timelines
 
-Times below are local to each scenario. All playback is deterministic.
+Status: **presentation-ready deterministic playback**. The UI is English. Authentic Polish text may remain inside frozen merchant screenshots.
 
-## Scenario 1 — adidas retail, 28 seconds
+All three scenarios begin with the same transition: the home composer expands, the request is typed character by character, the request is acknowledged, and the relevant workspace opens. Visual components render state only; `src/lib/demo/scenario-data.ts` owns the stages and `useScenarioOrchestrator` owns the clock.
 
-| Time | Stage | Visible action and copy | Motion/audio | Input and status |
-|---|---|---|---|---|
-| 00:00-00:03 | Request | adidas Samba OG `IG1024`, EU 43⅓, new, max PLN 350 delivered | Fixed type-on | `1`; deterministic |
-| 00:03-00:06 | Mandate | SKU, size, new, cap, trusted retailer, protected payment, auto-buy | Mandate chips lock | None; simulated mandate |
-| 00:06-00:11 | Search | adidas, Farfetch, PRM, eobuwie cards | Sequential focus pull | Frozen real pages; simulated search |
-| 00:11-00:15 | Rejections | adidas PLN 396.75; Farfetch PLN 379.00 | Red rule, quiet reject | Public snapshot data |
-| 00:15-00:19 | Promo trap | PRM PLN 329.99; extra 5% ineligible below PLN 500; delivery PLN 19.99; total PLN 349.98 | Coupon shakes once; cost expands | Promotion public; checkout/delivery snapshot frozen |
-| 00:19-00:23 | Winner | eobuwie PLN 339.99 + PLN 0.99 = PLN 340.98 | Winner card grows into chat | Frozen public snapshot |
-| 00:23-00:25 | Purchase | “Within mandate. Authorizing…” | Calm progress line | Simulated purchase/BLIK |
-| 00:25-00:28 | Receipt | Purchased; PLN 9.02 below cap | Receipt settles, success tone | Hold final frame |
+## Scenario 1 — retail true cost
 
-## Scenario 2 — Nintendo Switch OLED on OLX, 36 seconds
+Approximate runtime: 20 seconds.
 
-| Time | Stage | Visible action and copy | Motion/audio | Input and status |
-|---|---|---|---|---|
-| 00:00-00:04 | Request | Used Switch OLED, complete set, protected delivery, max PLN 980 final | Fixed type-on | `2`; deterministic |
-| 00:04-00:08 | Listing | OLX ID `1083464946`, PLN 940, cosmetic bezel crack | Listing folds into chat | Real screenshot, identity redacted |
-| 00:08-00:12 | Evidence gaps | Touch, drift, dock output, serial, accessories, protected shipping | Checklist reveals | Precomputed policy |
-| 00:12-00:19 | Contact | Agent asks; fictionalized seller sends test/photo evidence | Two message bubbles and asset tiles | Simulated conversation/evidence |
-| 00:19-00:23 | Analysis | Touch/dock/controls pass; cosmetic crack remains | Evidence pins and concise labels | Precomputed analysis |
-| 00:23-00:28 | Negotiate | Offer PLN 900; counter PLN 920; reserve 15 min | Price bridge animates once | Simulated negotiation |
-| 00:28-00:32 | True cost | PLN 920 + 15.99 + 15.99 = PLN 951.98 | Math resolves left-to-right | Deterministic calculation |
-| 00:32-00:36 | Approval | Protected checkout prepared; user approval required | Approval sheet settles | No click; hold final frame |
+1. Type the adidas Samba OG EU43 request.
+2. Reveal the mandate one rule at a time.
+3. Search adidas, eobuwie, Zalando, Sizeer, Footshop, JD Sports, PRM and Farfetch.
+4. Narrow eight sources to four viable results and two finalists.
+5. Expand only the frozen adidas and eobuwie captures.
+6. Validate `SUMMER30` as deterministic demo data, clearly outside the source capture.
+7. Calculate PLN 277.73 and select adidas.
+8. Hold the protected-handoff frame.
 
-## Scenario 3 — Fujifilm X100F on eBay.de, 50 seconds
+## Scenario 2 — private listing
 
-| Time | Stage | Visible action and copy | Motion/audio | Input and status |
-|---|---|---|---|---|
-| 00:00-00:05 | Listing | X100F, EUR 805 + EUR 5.50 shipping = PLN 3,493.26 at 4.31 | FX conversion counts once | `3`; real frozen page, fixed FX |
-| 00:05-00:10 | Message | Availability, shutter count, condition, eBay buyer protection | Simulated message sends | No real contact |
-| 00:10-00:14 | Escalation | Fictional seller asks for a phone call | Phone request card enters | Simulated reply |
-| 00:14-pause | Approval | “Allow agent to call” | Background quiets | Exactly one mouse click |
-| 00:14-00:41 | Call | German call, Polish captions, timer, waveform | Scripted audio and fixed waveform | Simulated call; see CALL_SCRIPT |
-| 00:41-00:45 | Risk policy | Off-platform payment, direct transfer, protection refused, urgency, channel change | Risk lines lock sequentially | Deterministic rules |
-| 00:45-00:50 | Decision | Rejected; no money/data; search continuing | Risk collapses into trust receipt | Hold final frame |
+Approximate runtime: 19 seconds.
 
-## Autoplay and recording
+1. Type the Nintendo Switch OLED request.
+2. Reveal the frozen OLX search capture.
+3. Detect missing screen, serial-number and accessory evidence.
+4. Type the English seller question.
+5. Reveal the fictional reply and simulated evidence sequentially.
+6. Offer PLN 880, receive PLN 930, accept PLN 930.
+7. Complete the ledger and prepare a protected PLN 930 checkout.
+8. Hold the verified-deal frame. No message or payment is real.
 
-- `A` plays cold open, scenarios, transitions and end card in 126 seconds.
-- `Escape` stops playback and returns to the neutral reset state.
-- Each direct scenario key resets all previous state and holds indefinitely on its final frame.
-- Record individual scenario takes plus a complete autoplay take; no scrolling or network calls.
+## Scenario 3 — protected seller call
+
+1. Type the Fujifilm request.
+2. Reveal the frozen eBay source and transaction mandate.
+3. Show a fictional seller requesting a call.
+4. Pause indefinitely at `Start protected call`.
+5. After the click, the transcript, waveform and risk ledger use the same clock.
+6. Reveal off-platform payment, direct transfer and personal-data risks.
+7. Reject the listing and hold the final trust frame.
+
+The final German AI-to-AI dialogue and its duration are **pending team-supplied audio**. Current transcript entries are structural timing fixtures, not final call copy.
+
+## Global controls
+
+- `1`, `2`, `3`: start only from home.
+- `R` or `Escape`: cancel playback and return home immediately.
+- `Space`: pause or resume an active scenario.
+- Final frames hold until reset.
+
+The controls are intentionally absent from the public UI.
