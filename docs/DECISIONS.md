@@ -36,3 +36,21 @@ Use lightweight Architecture Decision Records (ADRs). Add entries only after exp
 - **Decision:**
 - **Consequences:**
 - **Related issues/documents:**
+
+## ADR-0005: Replace visible state tooling with cinematic keyboard playback
+
+- **Date:** 2026-07-11
+- **Status:** Accepted
+- **Context:** Manual state navigation consumed presentation space and visibly resembled a developer tool. The team selected the four generated Relyo screens as the visual source of truth and requested one canonical entry state.
+- **Decision:** Remove visible state navigation and the extra stage header. Every load starts at the same home screen. From home, `1`, `2` and `3` start deterministic full-screen scenarios; `Esc` cancels playback and returns home. Scenario 3 pauses for exactly one `Allow agent to call` click before its 27-second local audio and transcript continue. Keep all controls hidden from the product UI except the required approval.
+- **Consequences:** The composition closely follows the selected 16:9 references. Refreshing never resumes an old scenario. Public-source captures, deterministic calculations and simulated seller behavior remain visibly separated. `/demo` and `/states` redirect to `/`.
+- **Related documents:** [Interaction spec](INTERACTION_SPEC.md), [Brand direction](BRAND_DIRECTION.md), [Claims](CLAIMS_AND_SIMULATIONS.md)
+
+## ADR-0004: Start the static interface implementation
+
+- **Date:** 2026-07-11
+- **Status:** Accepted
+- **Context:** The three demo narratives, source captures and cinematic specification are complete. The team explicitly requested the brand and full static interface while deferring playback orchestration and external integrations. The active tree no longer contained a frontend stack.
+- **Decision:** Transition the project from `Discovery` to `Static UI implementation`. Use a minimal Next.js App Router application with strict TypeScript and plain CSS. Implement `/states` and `/demo` as manual, deterministic review surfaces. Do not add external APIs, persistence, keyboard scenario playback or live commerce behavior.
+- **Consequences:** The repository becomes locally runnable and preview-deployable while preserving deterministic playback assets. A later ADR is still required for runtime orchestration, backend boundaries and deployment.
+- **Related documents:** [Brand direction](BRAND_DIRECTION.md), [Cinematic demo vision](CINEMATIC_DEMO_VISION.md), [Open decisions](OPEN_DECISIONS.md)

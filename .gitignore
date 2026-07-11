@@ -34,3 +34,4 @@ tmp/
 # Local agent/demo state
 .demo-state/
 .playwright-browsers/
+.playwright-cli/

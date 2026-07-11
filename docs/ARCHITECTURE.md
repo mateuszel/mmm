@@ -1,14 +1,14 @@
-# Architecture placeholder
+# Architecture
 
-**Status: Not selected.** No final architecture, framework, stack, persistence layer, integration strategy, or deployment method is approved.
+**Status: Static frontend selected; runtime architecture remains open.** The approved surface is one Next.js App Router application using strict TypeScript and plain CSS. It has no backend, persistence or external integration in this phase.
 
-The earlier generic scaffold was removed from the active tree. It remains available in Git history but is not an architecture decision for the Solidgate case.
+The earlier generic scaffold was removed from the active tree. The current frontend is a new, deliberately narrow static implementation based on the approved cinematic specification and frozen assets.
 
 ## Possible system areas
 
-These are discussion boundaries, not components to implement yet:
+The frontend is approved. Remaining areas are discussion boundaries, not components to implement yet:
 
-- **Frontend:** conversational brief, monitored-deal state, alert/approval flow, receipt and explanation
+- **Frontend:** one canonical `/` experience. A hidden in-memory state machine drives deterministic playback; `/demo` and `/states` redirect home and expose no developer controls.
 - **Backend:** scenario state, orchestration, price events, audit trail
 - **Agent layer:** language understanding, tool selection, structured proposal/explanation
 - **Investigation and negotiation:** availability checks, image/condition analysis, seller evidence, proactive questions, bounded negotiation

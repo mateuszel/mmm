@@ -115,6 +115,7 @@
       "cropped_derivative_filenames": [
         "sources/olx/olx-switch-search-top.webp",
         "sources/olx/olx-switch-search-results.webp",
+        "sources/olx/olx-switch-search-demo-column.png",
         "sources/olx/olx-switch-search-results-thumb.webp",
         "sources/olx/olx-switch-search-results-browser.webp"
       ],

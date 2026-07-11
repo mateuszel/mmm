@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Relyo app icon</title>
+  <rect width="128" height="128" rx="24" fill="#123F33"/>
+  <path d="M22 34h24l23 23h12M22 94h24l23-23h12" fill="none" stroke="#F7F5EF" stroke-width="10"/>
+  <circle cx="94" cy="64" r="17" fill="#D6FA52" stroke="#F7F5EF" stroke-width="6"/>
+  <path d="m87 64 5 5 10-13" fill="none" stroke="#121712" stroke-width="5"/>
+</svg>

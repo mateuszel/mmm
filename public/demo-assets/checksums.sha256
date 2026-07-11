@@ -17,7 +17,7 @@ aa54aa7c6953ed05b13879c16c4e60ed1755101d98ed9181f31e63751748c161  public/demo-as
 3e1f6c01b1ad18edfbde0c5fdd8eae30250363e2ff2ad6c85ee2f97239697d5b  public/demo-assets/call/waveform.json
 5b018fa69dd38dd51e3e9c9990d9f55e52e6dad0266219e7e1fa921b82d35c83  public/demo-assets/icons/privacy-relay.svg
 79e6942b01cc1b13d82025c0d3e9a2062e0206a6ea3ced4dd7e30aebfd09f648  public/demo-assets/icons/verification-check.svg
-c6c58f48a5a10b87ecab52a4a5a7e92894f4670efa82ec230deebd6acb47cbef  public/demo-assets/manifest.json
+9f2ee3f7be958dabab7b02a779f3ccdfe62292729b86dd1b8735d8c47cdd4bd4  public/demo-assets/manifest.json
 97b24c77db96b5210baad4473985d8e1757a0826346976d8d087054b9cd49136  public/demo-assets/payment/payment-confirmation.svg
 e2ab7cfa2869731233c432c8b4b75829c7cb8cdbb198efb250f59ddbe8044d0c  public/demo-assets/product/adidas-samba-og-ig1024-source.webp
 778faf74ab08c2c33e0f6fa587acff0e61870554cb2f650c70c081017e3f6955  public/demo-assets/product/fujifilm-x100f-ebay-source.webp
@@ -40,6 +40,7 @@ bdf364d7b25ccecbf4a759934faecc55944f99e8319ae75cdb6cb6c39bf6c33a  public/demo-as
 e9b16e0842ab71a47fc1f20d9751380ad40225162361267091294713a440bab4  public/demo-assets/sources/foreign/ebay-x100f-search-viewport.webp
 7a3cd78d61eb9ead352cac83ad22fedff3e36eff705da4591695e0fad5196e37  public/demo-assets/sources/olx/olx-1083464946-unavailable-fullpage.webp
 97014962ecc479b9599bf7cddf9d8cb248c9cc173b9f128e10732f72da35926d  public/demo-assets/sources/olx/olx-1083464946-unavailable-viewport.webp
+cc99e488689a85c0ea4d7dae31be1e2a2e32d15699f1fda461588fb6aa0294e4  public/demo-assets/sources/olx/olx-switch-search-demo-column.png
 cc189fd1696a6064227341dd6f5b07243004e1d9e30582b45e4479d44e1cb580  public/demo-assets/sources/olx/olx-switch-search-fullpage.webp
 ccc2bd90a5237c832a0275c391c5ce8c8ee1fdb11022f11606671e20672486b2  public/demo-assets/sources/olx/olx-switch-search-results-browser.webp
 9e4f37c09de1af6a332514c09297e32a9dcc04ef90cfae03e88518912d786480  public/demo-assets/sources/olx/olx-switch-search-results-thumb.webp

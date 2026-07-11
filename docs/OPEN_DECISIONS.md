@@ -1,6 +1,6 @@
 # Open decisions
 
-**Status: Open decision.** Coding must not begin until the essential product and technical decisions are checked and recorded in [Decisions](DECISIONS.md).
+**Status: Static UI implementation approved.** Runtime, integration and deployment decisions remain open and are tracked below.
 
 ## Product and demo
 
@@ -16,7 +16,7 @@
 - [x] Use three different products rather than one repeated hero product.
 - [ ] Define negotiation boundaries: allowed questions, price range, concessions, stop conditions, and mandatory escalation.
 - [ ] Define availability, photo/condition, authenticity, seller-review, and reputation evidence used in the demo.
-- [ ] Decide whether the brand/pitch page and interactive demo are one site or separate routes/surfaces.
+- [x] Keep the brand entry, static-state review and interactive demo in one site with separate routes.
 - [ ] Approve claims, product language, and explicit non-claims for the pitch.
 - [ ] Confirm legal/brand treatment for real store, OLX and eBay screenshots and logos.
 - [ ] Freeze and revalidate exact public pages, prices, stock, delivery and promotion terms immediately before recording.
@@ -43,19 +43,19 @@
 
 ## Technical delivery
 
-- [ ] Approve frontend, backend, agent, and shared-contract boundaries.
-- [ ] Approve the final stack after reviewing the existing scaffold.
+- [ ] Approve backend, agent and shared-contract boundaries; the static frontend boundary is approved.
+- [x] Approve a minimal Next.js App Router, strict TypeScript and plain CSS stack for the static prototype.
 - [ ] Decide data/state persistence needs.
 - [ ] Decide deployment method and demo fallback.
 - [x] Confirm Sites availability for the current hackathon account and create the neutral Team MMM project.
 - [ ] Select Sites or Vercel as the final host after the stack is approved; keep a local fallback.
 - [ ] Decide test strategy and CI gates for implementation.
-- [ ] Record the explicit project-status transition from `Discovery` to `Implementation`.
+- [x] Record the explicit project-status transition from `Discovery` to `Static UI implementation`.
 - [ ] Choose final UI language: English, Polish, or bilingual; German call retains Polish captions.
-- [ ] Approve `A` as the autoplay shortcut and final presenter control mapping.
+- [x] Approve presenter controls: `1`, `2`, `3` start scenarios only from home; `Esc` cancels and returns home; Scenario 3 has one call-approval click. `A` remains unassigned.
 - [ ] Select synthetic voices and approve German pronunciation.
 - [ ] Decide whether the theatre-mode live seller voice is worth rehearsal risk.
-- [ ] Approve visual identity, product name, type and color system before creating `DESIGN.md`.
+- [x] Approve the provisional Relyo identity and visual system for the hackathon prototype; legal clearance remains open.
 - [ ] Decide whether Scenario 2 ends at approval (current recommendation) or simulated purchase.
 - [ ] Select Sites or Vercel and confirm the local offline playback path.
 

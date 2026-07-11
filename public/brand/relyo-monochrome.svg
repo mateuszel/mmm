@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" role="img" aria-labelledby="title">
+  <title id="title">Relyo monochrome wordmark</title>
+  <path d="M4 15h12l11 11h7M4 49h12l11-11h7" fill="none" stroke="currentColor" stroke-width="5"/>
+  <circle cx="41" cy="32" r="8" fill="none" stroke="currentColor" stroke-width="3.5"/>
+  <path d="m38 32 2 2 4-5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+  <text x="62" y="45" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="750" letter-spacing="-2">relyo</text>
+</svg>
