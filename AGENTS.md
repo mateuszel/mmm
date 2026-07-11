@@ -1,14 +1,14 @@
-# Team MMM repository guidance
+# Agent instructions
 
-- Keep `main` runnable and implement end-to-end vertical slices before breadth.
-- Use strict TypeScript, typed structured outputs, and tests for domain logic.
-- Never commit secrets or expose server keys to the browser. `.env.local` stays ignored.
-- Demo fixtures must be deterministic and resettable without external services.
-- Keep partner integrations behind adapters and never present mock behavior as live.
-- Gate every external state change behind explicit human approval.
-- Verify official OpenAI documentation before using an API. Keep model IDs in environment variables.
-- Avoid unnecessary dependencies and mandatory infrastructure.
-- Make small, understandable commits and record meaningful decisions in `docs/DECISIONS.md`.
-- Prefer measurable business impact over feature count.
-
-Run `pnpm check` and, for user-flow changes, `pnpm test:e2e` before merging.
+1. Read `README.md` and relevant `docs/` files before changing anything.
+2. Treat `docs/OFFICIAL_CASE.md` as the source of truth for confirmed case requirements.
+3. Treat `docs/CURRENT_CONCEPT.md` as a provisional product hypothesis.
+4. Check `docs/OPEN_DECISIONS.md` before choosing features, architecture, stack, or integrations.
+5. Never present a hypothesis as a confirmed requirement.
+6. Do not implement code while project status is `Discovery`; wait for an explicit recorded transition.
+7. Do not add dependencies, frameworks, infrastructure, or services without a recorded decision.
+8. Keep frontend, backend, agent behavior, and shared contracts coordinated.
+9. Update documentation whenever product or architecture decisions change.
+10. Never commit secrets, personal data, or real payment credentials.
+11. Label every mocked or simulated integration clearly; never claim it is live.
+12. Preserve demo reliability, scope discipline, useful existing work, and a stable `main`.

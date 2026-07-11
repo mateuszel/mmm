@@ -1,17 +1,21 @@
-# Decisions
+# Decision log
 
-## 001 — Single full-stack application
+Use lightweight Architecture Decision Records (ADRs). Add entries only after explicit team agreement.
 
-Use Next.js instead of a monorepo or services to reduce integration and onboarding risk.
+## ADR-0001: Remain in discovery
 
-## 002 — Deterministic demo first
+- **Date:** 2026-07-11
+- **Status:** Accepted
+- **Context:** The official Solidgate case is now known, but Team MMM is still comparing product directions and the depth of delegated-payment behavior. The repository already contains a generic scaffold created before scope selection.
+- **Decision:** Project status is `Discovery`. No framework, final architecture, product scope, or integration has been approved. The conversational shopping-agent direction remains provisional. Do not add or extend implementation until the team records an explicit transition to `Implementation`.
+- **Consequences:** Preserve the existing scaffold for review, prepare context and decision documents, and resolve [Open decisions](OPEN_DECISIONS.md) before implementation tasks are created.
 
-All core flows run without credentials, partner APIs, a database, or Docker. Live adapters are deferred.
+## ADR template
 
-## 003 — Approval is a domain boundary
-
-Read-only tools may run automatically. External state changes require a recorded human decision.
-
-## 004 — Models are configuration
-
-No model identifier is hardcoded. Live mode requires both `OPENAI_API_KEY` and `OPENAI_MODEL` server-side.
+- **ID and title:**
+- **Date:**
+- **Status:** Proposed / Accepted / Superseded
+- **Context:**
+- **Decision:**
+- **Consequences:**
+- **Related issues/documents:**

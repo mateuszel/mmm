@@ -1,5 +1,7 @@
 # Partner research
 
+> **Status: Historical pre-brief research.** Do not use this file for current case requirements. Use [Official case](OFFICIAL_CASE.md) and the active [research log](RESEARCH.md).
+
 Verify all facts against current official sources during the event. Items below are public-context hypotheses, not challenge requirements.
 
 ## Solidgate
