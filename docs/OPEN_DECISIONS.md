@@ -43,7 +43,8 @@
 - [ ] Approve the final stack after reviewing the existing scaffold.
 - [ ] Decide data/state persistence needs.
 - [ ] Decide deployment method and demo fallback.
-- [ ] Verify whether ChatGPT Sites exists and is available to the team; otherwise use Vercel or a local fallback.
+- [x] Confirm Sites availability for the current hackathon account and create the neutral Team MMM project.
+- [ ] Select Sites or Vercel as the final host after the stack is approved; keep a local fallback.
 - [ ] Decide test strategy and CI gates for implementation.
 - [ ] Record the explicit project-status transition from `Discovery` to `Implementation`.
 

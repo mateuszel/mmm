@@ -28,6 +28,6 @@ These are discussion boundaries, not components to implement yet:
 6. Should the brand narrative and interactive demo be one deployable site or separate surfaces?
 7. Are any AP2, BLIK, Solidgate, marketplace, or messaging adapters in scope?
 8. How will strike precision and false-buy rate be reproduced?
-9. Is ChatGPT Sites a real available hosting option for this account, or should the team use Vercel/local fallback?
+9. Should the confirmed Sites project or Vercel host the approved stack, and what local fallback is required?
 
 Approve answers in [Open decisions](OPEN_DECISIONS.md) and record the architecture decision in [Decisions](DECISIONS.md) before coding.
