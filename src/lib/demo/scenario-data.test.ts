@@ -12,7 +12,7 @@ describe("deterministic demo timelines", () => {
   });
 
   it("fits the pitch recording window", () => {
-    expect(scenarios.retail.durationMs).toBe(22_500);
+    expect(scenarios.retail.durationMs).toBe(18_000);
     expect(scenarios.private.durationMs).toBe(21_500);
     expect(scenarios.foreign.durationMs).toBeCloseTo(37_132.514, 3);
   });

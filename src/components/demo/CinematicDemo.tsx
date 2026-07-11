@@ -3,8 +3,10 @@
 /* eslint-disable @next/next/no-img-element -- Frozen local source captures must remain exact and offline. */
 import {
   ArrowRight,
+  ChartLineUp,
   CheckCircle,
   CircleNotch,
+  GlobeHemisphereWest,
   LockKey,
   MagnifyingGlass,
   Paperclip,
@@ -122,12 +124,13 @@ function HomeScreen({ start }: { start: (scenario: Exclude<Scenario, "home">) =>
         <section className="home-workspace">
           <div className="home-intro">
             <div className="home-mark"><img src="/brand/relyo-symbol.svg" alt="Relyo protected handoff" /></div>
-            <div><h1>Hello. I’m Relyo.<br />Your AI shopping agent.</h1><p>I research, compare, and buy on your behalf,<br />only within your mandate, always with proof.</p></div>
+            <div className="home-intro__copy"><h1>Hello. I’m Relyo.<br />Your AI shopping agent.</h1><p>I research, compare, and buy on your behalf,<br />only within your mandate, always with proof.</p><div className="partner-strip" aria-label="Technology collaborators"><span>Built with</span><div className="partner-logo partner-logo--openai"><img src="/brand/partners/openai.png" alt="OpenAI" /></div><div className="partner-logo partner-logo--eleven"><img src="/brand/partners/elevenlabs.png" alt="ElevenLabs" /></div><div className="partner-logo partner-logo--inpost"><img src="/brand/inpost-logo.svg" alt="InPost" /></div><div className="partner-logo partner-logo--ceneo"><img src="/brand/partners/ceneo.png" alt="Ceneo" /></div></div></div>
           </div>
           <form data-testid="home-composer" className="home-composer" onSubmit={submitDraft}>
             <div><textarea data-testid="home-composer-input" aria-label="Shopping request" value={draft} onChange={(event) => { setDraft(event.target.value); setComposerState("idle"); }} placeholder="What would you like me to find or buy?" /><small>{composerState === "searching" ? "Preparing your search…" : composerState === "soon" ? "Personalized live search is coming soon. Try an example below." : "Include the item, preferences, budget and timing."}</small></div>
             <div className="home-composer__tools">{[["attach", Paperclip], ["tag", Tag], ["preferences", SlidersHorizontal]].map(([name, Icon]) => <button key={String(name)} type="button" aria-label={String(name)} onClick={() => pulseTool(String(name))} className={toolPulse === name ? "tool-pulse" : ""}><Icon /></button>)}</div>
             <button data-testid="home-composer-submit" type="submit" aria-label="Prepare shopping request" disabled={!draft.trim()}><img src="/brand/relyo-symbol.svg" alt="" /></button>
+            <span className="composer-model-chip">Luna 5.6</span>
             {composerState === "searching" && <span className="composer-search-pulse"><CircleNotch className="spin-slow" />Searching</span>}
           </form>
           <div className="scenario-heading"><span>Start with an example</span><i /></div>
@@ -140,9 +143,9 @@ function HomeScreen({ start }: { start: (scenario: Exclude<Scenario, "home">) =>
           </div>
         </section>
         <aside className="home-evidence">
-          <div className="evidence-title"><span>Your control</span><span data-testid="home-evidence-count">Ready</span></div>
+          <div className="evidence-title"><span>Shopping intelligence</span><span data-testid="home-evidence-count">Active</span></div>
           <div className="evidence-path" />
-          <div className="home-control-list" data-testid="home-evidence-empty"><div><MagnifyingGlass /><span><strong>Source-backed search</strong><small>See where every offer came from.</small></span></div><div><ShieldCheck /><span><strong>Your mandate</strong><small>Price, payment and contact boundaries.</small></span></div><div><CheckCircle /><span><strong>Decision trail</strong><small>Understand why Relyo acted or stopped.</small></span></div></div>
+          <div className="home-control-list" data-testid="home-evidence-empty"><div><GlobeHemisphereWest /><span><strong>Landed-cost forecast</strong><small>Delivery, currency and customs checked before action.</small></span></div><div><ChartLineUp /><span><strong>Ceneo price memory</strong><small>Historical price context exposes weak promotions.</small></span></div><div><CheckCircle /><span><strong>Best verified offer</strong><small>Relyo charges no buyer search commission.</small></span></div></div>
           <button data-testid="home-activity-trigger" type="button" aria-haspopup="dialog" aria-expanded={menu === "activity"} onClick={() => setMenu(menu === "activity" ? null : "activity")}>{menu === "activity" ? "Hide activity" : "View all activity"} <ArrowRight size={25} /></button>
           {menu === "activity" && <div role="dialog" aria-label="Activity trail" data-testid="home-activity-popover" className="activity-popover" data-enter><strong>Activity trail</strong>{activity.length ? activity.map((item) => <p key={item}>{item}</p>) : <p>Nothing yet. Start with a request or an example.</p>}</div>}
         </aside>
@@ -169,7 +172,7 @@ function WorkspaceHeader({ scenario, phase }: { scenario: Exclude<Scenario, "hom
   return (
     <header className="workspace-header">
       <div className="workspace-header__brand"><MiniBrand /><span>AI shopping agent</span></div>
-      <div className="workspace-header__title"><span>{scenarioCopy[scenario].title}</span></div>
+      <div className="workspace-header__title"><span>{scenarioCopy[scenario].title}</span><small>Luna 5.6 orchestration</small></div>
       <div className="workspace-header__status"><ShieldCheck size={23} /><span>{status}</span><i /></div>
     </header>
   );
@@ -181,9 +184,9 @@ function SourceBadge({ date = "11 Jul 2026" }: { date?: string }) {
 
 function RetailSearchFunnel({ elapsedMs }: { elapsedMs: number }) {
   const local = Math.max(0, elapsedMs - 2_300);
-  const shown = Math.min(8, Math.max(1, Math.ceil(local / 600)));
-  const resolved = local > 5_200;
-  const narrowed = local > 7_400;
+  const shown = Math.min(8, Math.max(1, Math.ceil(local / 250)));
+  const resolved = local > 2_500;
+  const narrowed = local > 3_800;
 
   return (
     <div className="retail-search-funnel" data-testid="retail-source-funnel">
@@ -207,13 +210,13 @@ function RetailSearchFunnel({ elapsedMs }: { elapsedMs: number }) {
 function RetailScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string }) {
   const showAgent = elapsedMs >= 3_000;
   const showMandate = elapsedMs >= 3_350;
-  const showSources = elapsedMs >= 11_500;
-  const showSecond = elapsedMs >= 12_300;
-  const showDecision = elapsedMs >= 15_000;
-  const showCoupon = elapsedMs >= 16_500;
-  const showCosts = elapsedMs >= 18_500;
-  const decided = elapsedMs >= 21_000;
-  const receipt = elapsedMs >= 22_500;
+  const showSources = elapsedMs >= 8_000;
+  const showSecond = elapsedMs >= 8_700;
+  const showDecision = elapsedMs >= 11_000;
+  const showCoupon = elapsedMs >= 12_500;
+  const showCosts = elapsedMs >= 14_500;
+  const decided = elapsedMs >= 16_500;
+  const receipt = elapsedMs >= 18_000;
   const decisionScrollRef = useAutoScroll(`${showCoupon}:${showCosts}:${receipt}`);
   return (
     <div className="cinema cinema--workspace" data-testid="scenario-screen" data-scenario="retail" data-stage={phase}>
@@ -252,6 +255,7 @@ function RetailScreen({ elapsedMs, phase }: { elapsedMs: number; phase: string }
           <div ref={decisionScrollRef as React.RefObject<HTMLDivElement>} className={`decision-content trail-layer ${showDecision ? "layer-active" : "layer-hidden"}`}>
             <div className={decided ? "selected-offer" : "selected-offer selected-offer--pending"}><CheckCircle weight="fill" /><span><small>{decided ? "Selected offer" : "Validating finalist"}</small><strong>adidas.pl</strong></span></div>
             <span className="source-badge">Offer analysis · captured source unchanged</span>
+            <div className={`ceneo-history ${showCoupon ? "slot-visible" : "slot-hidden"}`}><img src="/brand/partners/ceneo.png" alt="Ceneo" /><span><small>Deterministic price-history signal</small><strong>30-day reference checked</strong></span></div>
             <div className="cost-lines"><p><span>Displayed price</span><strong>396.75 PLN</strong></p><p><span>SUMMER30</span><strong>{showCoupon ? "Valid, -30%" : "Validating"}</strong></p><p><span>Subtotal</span><strong>{showCosts ? "277.73 PLN" : "Calculating"}</strong></p><p><span className="inpost-inline"><img src="/brand/inpost-logo.svg" alt="InPost" />delivery</span><strong>{showCosts ? "0.00 PLN" : "Calculating"}</strong></p><p className="cost-total"><span>True landed cost</span><strong>{showCosts ? "277.73 PLN" : "Calculating"}</strong></p></div>
             <div className="offer-checks">
               <h3>All checked offers</h3>
@@ -352,8 +356,8 @@ function ForeignScreen({ elapsedMs, callElapsedMs, phase, status, approve }: { e
           <div className="deterministic-listing"><span>Target listing summary</span><div><img src={`${A}/sources/foreign/ebay-x100f-search-result-card.webp`} alt="Captured Fujifilm market reference" /><section><h3>Fujifilm X100V</h3><p>Used, €1,100 + €20 delivery</p><p>Estimated duty: €0 for EU route</p><p><strong>Estimated landed cost: €1,120</strong></p><small>Deterministic target analysis shown separately from the captured X100F market reference.</small></section></div></div>
         </section>
         <section className={`call-workspace soft-panel ${approval ? "call-workspace--approval" : ""} ${calling || ended ? "call-workspace--active" : ""}`}>
-          <div className="numbered-heading"><b>2</b><strong>Seller verification call</strong><span>{approval ? "Approval required" : calling ? "Protected call" : ended ? "Call ended" : "Verifying listing"}</span></div>
-          {!approval && !calling && !ended ? <div className={`seller-call-request call-request-slot ${phoneRequested ? "slot-visible" : "slot-hidden"}`}><p><strong>Relyo</strong>Is the Fujifilm X100V available? Please confirm its condition and included items.</p><p><strong>Seller</strong>Yes. Please call me. It will be easier to explain.</p></div> : <div aria-hidden="true" />}
+          <div className="numbered-heading"><b>2</b><strong>Seller verification call</strong><div className="call-provider"><img src="/brand/partners/elevenlabs.png" alt="ElevenLabs" /><small>Voice by ElevenLabs</small><em>{approval ? "Approval required" : calling ? "Protected call" : ended ? "Call ended" : "Verifying listing"}</em></div></div>
+          <div aria-hidden="true" />
           {!calling && !ended ? <div className={phoneRequested ? "call-preflight" : "call-preflight is-hidden"} data-enter><div><strong>The seller wants to continue by phone</strong><p>I can call through a privacy-protected relay and verify the transaction conditions.</p></div><div><Phone weight="fill" /><strong>+49 ••• ••• 4821</strong></div>{approval ? <button data-testid="start-protected-call" type="button" onClick={approve}>Start protected call</button> : <span>Preparing protected relay</span>}</div> : <div aria-hidden="true" />}
           {calling || ended ? <div className="call-session" data-enter>
             <div className="call-session__meta"><span><i />{approval ? "Ready after approval" : ended ? "Call ended" : "Call in progress"}</span><strong data-testid="call-timer">{formatTimer(callElapsedMs)}</strong><span>German transcript · synchronized audio</span></div>

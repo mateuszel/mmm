@@ -12,7 +12,7 @@ Relyo is a source-backed shopping agent prototype built by **Team MMM** for the 
 |---|---|---|---|
 | `1` | **Retail: adidas Samba OG** | Compares source-backed offers, availability, promotions and landed cost against a hard cap. | Acts only when the retail mandate is satisfied. |
 | `2` | **Private seller: Nintendo Switch OLED** | Identifies evidence gaps, simulates a concise seller exchange and preserves protected checkout. | Prepares a verified deal for approval. No payment is made. |
-| `3` | **Risk boundary: Fujifilm X100F** | Pauses for call approval, then detects an off-platform transfer request in a simulated seller call. | Rejects the listing. No money or personal data is shared. |
+| `3` | **Risk boundary: Fujifilm X100V** | Pauses for call approval, then detects an off-platform transfer request in a simulated seller call. | Rejects the listing. No money or personal data is shared. |
 
 Scenario 3 requires one visible click to approve the **simulated** verification call. Press `Space` to pause or resume. Press `R` or `Esc` to return home.
 
@@ -62,22 +62,26 @@ corepack pnpm test:e2e
 | **Deterministic demo** | Scenario timing, mandate rules, selected demo values, calculations, risk policy and final decisions. |
 | **Simulated integrations and actions** | Search execution, coupon validation, seller messages, generated evidence, negotiation, privacy relay, call, checkout, payment authorization and receipts. |
 
-Required UI labels include `Scripted demo · No live transactions`, `Simulated seller conversation`, `Simulated evidence`, `Simulated seller verification call` and `Simulated payment authorization`.
+## Technology collaboration
+
+- **OpenAI:** agent foundation, structured mandates and bounded decisions.
+- **Luna 5.6:** team-selected low-cost model for seller-facing messaging.
+- **ElevenLabs:** German voice assets for the protected seller-call sequence.
+- **Ceneo:** historical-price context used to challenge weak promotions.
+- **InPost:** planned checkout-to-delivery handoff.
+
+The stage playback remains deterministic and offline. It does not call these services during the demo.
 
 ## Disclosure
 
 - No real seller was contacted, called, negotiated with or associated with scripted behavior.
-- No live adidas, eobuwie, OLX, eBay, InPost, BLIK, Solidgate or OpenAI integration runs during playback.
+- No live merchant, marketplace, payment, delivery, voice or model API runs during playback.
 - No real payment, phone relay or marketplace checkout occurs.
 - The mandate is an **AP2-aligned concept**, not a claim of AP2 compliance.
-- Public captures are references, not evidence of partnership, endorsement, current inventory, authenticity or seller safety.
-- **InPost delivery handoff is planned by Team MMM as a product direction. It is not a live integration, confirmed partnership or available InPost API connection.**
+- Public captures are references, not evidence of retailer endorsement, current inventory, authenticity or seller safety.
+- Technology collaboration and product-direction claims above are supplied by Team MMM. They do not mean that a live partner API is active in the recorded prototype.
 
 See [Claims and simulations](docs/CLAIMS_AND_SIMULATIONS.md), [Asset provenance](docs/ASSET_PROVENANCE.md) and [Official case](docs/OFFICIAL_CASE.md) for the evidence and language gates.
-
-## Where OpenAI fits
-
-The production direction uses OpenAI capabilities for natural-language intent, structured mandate creation, evidence synthesis, tool selection and bounded agent decisions. Hackathon playback is deterministic so the demo remains reliable without an API key.
 
 ## Team MMM
 

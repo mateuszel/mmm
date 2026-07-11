@@ -1,5 +1,14 @@
 # Asset provenance
 
+## Team-supplied technology marks
+
+The hero uses team-supplied OpenAI, ElevenLabs and Ceneo wordmarks plus the existing official InPost SVG. They identify the technology collaboration context confirmed by Team MMM. They do not imply that the deterministic playback calls a live partner API.
+
+- `public/brand/partners/openai.png`
+- `public/brand/partners/elevenlabs.png`
+- `public/brand/partners/ceneo.png`
+- `public/brand/inpost-logo.svg`
+
 **Status: Produced and validated with two explicit source gaps.** Canonical machine-readable metadata is in [`public/demo-assets/manifest.json`](../public/demo-assets/manifest.json); SHA-256 values are in [`checksums.sha256`](../public/demo-assets/checksums.sha256).
 
 Capture and local optimization session: `2026-07-11T11:24:00Z–2026-07-11T11:34:00Z`. Chrome used a 1920x1080 CSS viewport override; screenshots retain browser device scaling. No login, seller contact, phone reveal, message, offer, checkout or payment occurred.

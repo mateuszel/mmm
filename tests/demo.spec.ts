@@ -19,6 +19,8 @@ test("refresh and reset always restore the clean home", async ({ page }) => {
 });
 
 test("custom home request stays on home and resolves to coming soon", async ({ page }) => {
+  await expect(page.getByText("Luna 5.6")).toBeVisible();
+  for (const brand of ["OpenAI", "ElevenLabs", "InPost", "Ceneo"]) await expect(page.getByAltText(brand).first()).toBeVisible();
   const input = page.getByTestId("home-composer-input");
   const submit = page.getByTestId("home-composer-submit");
   await expect(submit).toBeDisabled();
@@ -28,7 +30,7 @@ test("custom home request stays on home and resolves to coming soon", async ({ p
   await expect(page.getByText("Personalized live search is coming soon. Try an example below.")).toBeVisible();
   await expect(page.getByTestId("home-screen")).toBeVisible();
   await expect(page.getByTestId("scenario-screen")).toHaveCount(0);
-  await expect(page.getByTestId("home-evidence-count")).toHaveText("Ready");
+  await expect(page.getByTestId("home-evidence-count")).toHaveText("Active");
   await page.getByTestId("home-activity-trigger").click();
   await expect(page.getByTestId("home-activity-popover")).toContainText("Personalized search is coming soon");
   await page.getByTestId("home-profile-trigger").click();
@@ -43,6 +45,7 @@ test("retail search checks eight sources and expands only two authentic captures
   await expect(page.getByTestId("retail-source-funnel")).toBeVisible();
   await expect(page.getByTestId("retail-source-name")).toHaveCount(8);
   await expect(page.getByTestId("retail-final")).toBeVisible();
+  await expect(page.getByText("30-day reference checked")).toBeVisible();
   await expect(page.getByTestId("adidas-capture")).toHaveCount(1);
   await expect(page.getByTestId("eobuwie-capture")).toHaveCount(1);
   await page.waitForTimeout(250);
@@ -62,6 +65,7 @@ test("protected call pauses, resumes on click, synchronizes risk, and holds", as
   await page.keyboard.press("3");
   const approval = page.getByTestId("start-protected-call");
   await expect(approval).toBeVisible();
+  await expect(page.getByText("Voice by ElevenLabs")).toBeVisible();
   await expect(page.getByText("Is the Fujifilm X100V available? Please confirm its condition and included items.")).toHaveCount(0);
   await expect(page.getByTestId("call-transcript")).toHaveCount(0);
   await page.waitForTimeout(200);
